@@ -43,14 +43,14 @@
 <span class="pl-s1"><span class="pl-k">try</span> </span>
 <span class="pl-s1">{   <span class="pl-c"># Fetch transcribeRecoring</span></span>
 <span class="pl-s1">    <span class="pl-smi">$transcribeRecoring</span> <span class="pl-k">=</span> <span class="pl-smi">$Message360</span><span class="pl-k">-&gt;</span>create(<span class="pl-s"><span class="pl-pds">'</span>Transcriptions<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>TranscribeRecordingAPI<span class="pl-pds">'</span></span>,<span class="pl-c1">array</span>(</span>
-<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>recordingsid<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span></span>
-<span class="pl-s1">                ));</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>recordingsid<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span></span>
+<span class="pl-s1">    ));</span>
 <span class="pl-s1">    <span class="pl-c"># Print content of the transcribeRecoring objects       </span></span>
 <span class="pl-s1">    <span class="pl-c1">print_r</span>(<span class="pl-smi">$transcribeRecoring</span><span class="pl-k">-&gt;</span>getResponse());</span>
 <span class="pl-s1">} </span>
 <span class="pl-s1"><span class="pl-k">catch</span> (<span class="pl-c1">Message360_Exception</span> <span class="pl-smi">$e</span>) </span>
 <span class="pl-s1">{</span>
-<span class="pl-s1">  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Error occured: <span class="pl-pds">"</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage() <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Error occurred: <span class="pl-pds">"</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage() <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>;</span>
 <span class="pl-s1">}</span>
 <span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
 
