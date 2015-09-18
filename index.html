@@ -1,40 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta charset="UTF-8">
     <title>Message360-php-helper-library by Ytel-Inc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <section class="page-header">
+      <h1 class="project-name">Message360-php-helper-library</h1>
+      <h2 class="project-tagline">Official PHP Message360 REST API  &amp; InboundXML Library</h2>
+      <a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library" class="btn">View on GitHub</a>
+      <a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <header>
-          <h1>Message360-php-helper-library</h1>
-          <h2>Official PHP Message360 REST API  &amp; InboundXML Library</h2>
-        </header>
+    <section class="main-content">
+      <p><img src="http://message360.com/wordpress/wp-content/uploads/2014/08/message360.png" alt=""></p>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h3>
+<h3>
 <a id="welcome-to-the-message360-php-helper-library" class="anchor" href="#welcome-to-the-message360-php-helper-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to the Message360 PHP Helper Library</h3>
 
 <p>This is home to the Official PHP Message360 REST API. </p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-pse">&lt;?php</span><span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">## First we must import the actual Message360 library</span></span>
+<span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>../../library/message360.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c"># Now what we need to do is instantiate the library and set the required options defined above</span></span>
+<span class="pl-s1"><span class="pl-smi">$Message360</span> <span class="pl-k">=</span> <span class="pl-c1">Message360</span><span class="pl-k">::</span>getInstance();</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c"># Message360 REST API credentials are required</span></span>
+<span class="pl-s1"><span class="pl-smi">$Message360</span> <span class="pl-k">-&gt;</span> setOptions(<span class="pl-c1">array</span>( </span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>account_sid<span class="pl-pds">'</span></span>       <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>xxxx-xxxxxx-xxxxxx<span class="pl-pds">'</span></span>, </span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>auth_token<span class="pl-pds">'</span></span>        <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>xxxx-xxxxxx-xxxxxx<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">    <span class="pl-s"><span class="pl-pds">'</span>response_to_array<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span><span class="pl-c1">true</span>,</span>
+<span class="pl-s1">    ));</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">try</span> </span>
+<span class="pl-s1">{   <span class="pl-c"># Fetch transcribeRecoring</span></span>
+<span class="pl-s1">    <span class="pl-smi">$transcribeRecoring</span> <span class="pl-k">=</span> <span class="pl-smi">$Message360</span><span class="pl-k">-&gt;</span>create(<span class="pl-s"><span class="pl-pds">'</span>Transcriptions<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>TranscribeRecordingAPI<span class="pl-pds">'</span></span>,<span class="pl-c1">array</span>(</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>recordingsid<span class="pl-pds">'</span></span><span class="pl-k">=&gt;</span><span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span></span>
+<span class="pl-s1">                ));</span>
+<span class="pl-s1">    <span class="pl-c"># Print content of the transcribeRecoring objects       </span></span>
+<span class="pl-s1">    <span class="pl-c1">print_r</span>(<span class="pl-smi">$transcribeRecoring</span><span class="pl-k">-&gt;</span>getResponse());</span>
+<span class="pl-s1">} </span>
+<span class="pl-s1"><span class="pl-k">catch</span> (<span class="pl-c1">Message360_Exception</span> <span class="pl-smi">$e</span>) </span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">  <span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>Error occured: <span class="pl-pds">"</span></span> <span class="pl-k">.</span> <span class="pl-smi">$e</span><span class="pl-k">-&gt;</span>getMessage() <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\n</span><span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">}</span>
+<span class="pl-s1"></span><span class="pl-pse"><span class="pl-s1">?</span>&gt;</span></pre></div>
 
 <p>An account for Message360 is free to sign up for at <a href="https://api.message360.com">https://api.message360.com</a></p>
 
@@ -56,14 +74,16 @@
 <a id="company-information" class="anchor" href="#company-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Company Information</h3>
 
 <p>© 2015 Ytel, Inc. | Ytel™ All Rights Reserved. | 800.382.4913 | <a href="http://www.ytel.com">www.ytel.com</a></p>
-        </section>
 
-        <footer>
-          Message360-php-helper-library is maintained by <a href="https://github.com/Ytel-Inc">Ytel-Inc</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Ytel-Inc/Message360-PHP-Helper-Library">Message360-php-helper-library</a> is maintained by <a href="https://github.com/Ytel-Inc">Ytel-Inc</a>.</span>
 
-                  <script type="text/javascript">
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -74,7 +94,5 @@
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
