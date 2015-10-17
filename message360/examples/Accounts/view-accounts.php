@@ -14,10 +14,10 @@ $Message360 -> setOptions(array(
 try 
 {
   # Fetch Accounts    
-  $accounts = $Message360->get('Accounts','viewAccountApi');
+  $accounts = $Message360->get('Accounts', 'viewAccountApi');
  
   # Print content of the Accounts objects
-  foreach($accounts->getResponse() as $accountsList) 
+  foreach ($accounts->getResponse() as $accountsList) 
   { 
      print_r($accountsList);
   }
