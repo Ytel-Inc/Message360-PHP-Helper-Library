@@ -103,6 +103,7 @@ class Message360_Client extends Message360_Related {
     /**
      * Return whenever token is generated and is set within the class.
      * 
+     * @param string $application_sid
      * @return boolean
      * @throws Message360_Exception  if application sid is not correct
      */

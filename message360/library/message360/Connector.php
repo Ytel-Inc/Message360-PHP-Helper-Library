@@ -9,6 +9,9 @@ class Message360_Connector {
     protected $response_association = false;
     protected $_component = null;
 
+    /**
+     * @param string $component
+     */
     function __construct($curl_data, $response_association = false, $component = null) {
         //echo "<pre>";print_r($curl_data);die;echo "</pre>";
         $this->curl_data = $curl_data;

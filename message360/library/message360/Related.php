@@ -186,7 +186,7 @@ abstract class Message360_Related {
      * POSTING (Creating) new documents for desired resources, such as sending new
      * SMS messages
      * 
-     * @param  string|array $component
+     * @param  string[] $component
      * @param  array        $data
      * @return Message360_Connector 
      */
@@ -228,7 +228,6 @@ abstract class Message360_Related {
      * so please consult REST documentation on the Message360 site.
      * 
      * @param  string|array $component 
-     * @param  array        $data
      * @return Message360_Connector 
      */
     function delete($component, $action, Array $parameters = array()) {
@@ -244,7 +243,7 @@ abstract class Message360_Related {
     /**
      * Return an instance of the Message360 Client class
      * 
-     * @return Class <Message360_Client, self, NULL>
+     * @return Message360_Client <Message360_Client, self, NULL>
      */
     function getClient() {
         return Message360_Client::getInstance();
@@ -384,11 +383,17 @@ abstract class Message360_Related {
         return $return_params;
     }
 
+    /**
+     * @param string $needle
+     */
     private function _startsWith($haystack, $needle) {
         // search backwards starting from haystack length characters from the end
         return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
     }
 
+    /**
+     * @param string $needle
+     */
     private function _findWith($haystack, $needle) {
         // search backwards starting from haystack length characters from the end
         return $needle === "" || strrpos($haystack, $needle) !== FALSE;
