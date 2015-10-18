@@ -66,7 +66,7 @@ class Message360_InboundXML
     /**
      * Converts method calls into InboundXML verbs.
      *
-     * @return SimpleXmlElement A SimpleXmlElement
+     * @return Message360_InboundXML A SimpleXmlElement
      */
     public function __call($verb, array $args) {
 
