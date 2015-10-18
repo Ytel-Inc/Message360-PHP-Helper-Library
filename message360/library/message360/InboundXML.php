@@ -35,7 +35,7 @@ class Message360_InboundXML
     /**
      * Constructs a InboundXML response.
      *
-     * @param SimpleXmlElement|array $arg:
+     * @param SimpleXmlElement|array $arg 
      *   - the element to wrap
      *   - attributes to add to the element
      *   - if null, initialize an empty element named 'Response'
@@ -83,14 +83,6 @@ class Message360_InboundXML
 
         if (is_array($noun)) list($attrs, $noun) = array($noun, '');
 		
-		//echo $verb;die;
-		
-		//if (empty($noun)){$noun=" ";}
-		
-        /*$child = empty($noun)
-            ? $this->element->addChild(ucfirst($verb))
-            : $this->element->addChild(ucfirst($verb), $noun);
-          */
           
           $child = empty($noun)
             ? $this->element->addChild(ucfirst($verb),$noun)
@@ -100,7 +92,6 @@ class Message360_InboundXML
             $this->_validateAttribute($name, $verb);
             $child->addAttribute($name, $value);
         }
-		//echo new self($child);die;
         return new self($child);
         
     }
