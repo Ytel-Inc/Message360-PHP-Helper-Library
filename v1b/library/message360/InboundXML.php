@@ -14,7 +14,6 @@ require_once 'Schemas.php';
  * Online documentation can be found at: https://api.message360.com/Docs/Accounts/viewaccount/
  * --------------------------------------------------------------------------------
  */
-
 class Message360_InboundXML
 {
     

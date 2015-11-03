@@ -57,7 +57,7 @@ abstract class Message360_Related {
          'listSms' => 'listSms',
          'viewSms' => 'viewSms',
          'getInboundSms' => 'getInboundSms',
-         'numberOptIn' => 'numberOptIn',
+         'numberOptIn' => 'numberOptIn', 
          	
     	/*Incoming Phone Number*/
     	'viewNumber'=>'viewNumber',

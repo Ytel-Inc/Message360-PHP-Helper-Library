@@ -6,7 +6,6 @@ class Message360_Connect extends Message360_Related
 	
 	protected static $_status   = true;
 	
-	
 	static function getInstance() {
 		if(is_null(self::$_instance)) self::$_instance = new self();
 		return self::$_instance;

@@ -73,7 +73,6 @@ class Message360_Client extends Message360_Related {
 
         return true;
     }
-
     /**
      * Return client token or NULL if not set
      * 
