@@ -1,141 +1,154 @@
 <?php
+/**
+ * @author Afzal Patel <afzal@ytel.co.in>
+ * @version V1.1(v1b)
+ */
+abstract class Message360_Related {
 
-abstract class Message360_Related
-{
-    
     /** Wrapper to return Message360 response as JSON */
-    CONST WRAPPER_JSON         = 'json';
-    
-   
+    CONST WRAPPER_JSON = 'json';
+
     /** Wrapper to return Message360 response as XML */
-    CONST WRAPPER_XML          = 'xml';
-    
-    
+    CONST WRAPPER_XML = 'xml';
+
     /** BASE Message360 URI */
-	//CONST API_URL              = 'https://api.message360.com/api/v1b/';
-CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
-    
+    //CONST API_URL = 'https://api-dev.message360.com/api/v1b/';
+    CONST API_URL = 'https://api.message360.com/api/v1b/';
+
     /** BASE Message360 API VERSION */
-    CONST API_VERSION          = 'v1';
-   
-  
-    CONST API_START_COMPONENT  = 'Accounts';
-    
-    protected $_availableVersions = array( '2011-07-01', 'v1');
+    CONST API_VERSION = 'v1b';
+    CONST API_START_COMPONENT = 'Accounts';
 
-
+    protected $_availableVersions = array('2015-11-01', 'v1b');
     protected static $_options = array(
-        'account_sid'       => null,
-        'auth_token'        => null,
-        'wrapper_type'      => self::WRAPPER_JSON,
+        'account_sid' => null,
+        'auth_token' => null,
+        'wrapper_type' => self::WRAPPER_JSON,
         'response_to_array' => false,
-        'api_version'       => self::API_VERSION
+        'api_version' => self::API_VERSION
     );
-    
-    
+
     /**
      * All existing and available Message360 components that can be accessed by
      * this wrapper
      * 
      * @var array
      */
-     private $_components = array(
-
- 	'viewaccount'   =>  'viewaccount',  
-       
-        'TranscribeAudioUrlAPI' =>'TranscribeAudioUrlAPI',
-        'ListAvailableNumbersAPI'=>'ListAvailableNumbersAPI',
-        'createIncomingPhoneNumberAPI'=>'createIncomingPhoneNumberAPI',
+    private $_components = array(
+        /*Account Module*/
+        'viewAccount' => 'viewAccount',
+        /*Usages Module*/
+        'listUsage' => 'listUsage',
+        /*Email v1b Module*/
+        'sendEmails' => 'sendEmails',
+        'listBlockEmail' => 'listBlockEmail',
+        'listBounceEmail' => 'listBounceEmail',
+        'listSpamEmail' => 'listSpamEmail',
+        'listInvalidEmail' => 'listInvalidEmail',
+        'listUnsubscribedEmail' => 'listUnsubscribedEmail',
+        'deleteBlocksEmail' => 'deleteBlocksEmail',
+        'deleteBouncesEmail' => 'deleteBouncesEmail',
+        'deleteSpamEmail' => 'deleteSpamEmail',
+        'deleteInvalidEmail' => 'deleteInvalidEmail',
+        'deleteUnsubscribedEmail' => 'deleteUnsubscribedEmail',
+        'addUnsubscribesEmail' => 'addUnsubscribesEmail',
+         /*SMS v1b Module*/
+		 'sendSms' => 'sendSms',
+         'listSms' => 'listSms',
+         'viewSms' => 'viewSms',
+         'getInboundSms' => 'getInboundSms',
+         'numberOptIn' => 'numberOptIn',
+         	
+    	/*Incoming Phone Number*/
+    	'viewNumber'=>'viewNumber',
+    	'updateNumber'=>'updateNumber',
+    	'listNumber' => 'listNumber',
 	
-	'viewCalls' => 'viewCalls',
-	'makeCall' => 'makeCall',  
-	'interruptCalls'=>'interruptCalls', 
-	'senddigits'=>'senddigits',     
+        'TranscribeAudioUrlAPI' => 'TranscribeAudioUrlAPI',
+        'ListAvailableNumbersAPI' => 'ListAvailableNumbersAPI',
+        'createIncomingPhoneNumberAPI' => 'createIncomingPhoneNumberAPI',
+        'makeCall' => 'makeCall',
+        'listcalls' => 'listcalls',
+        'viewcalls' => 'viewcalls',
+        'Interrupt' => 'Interrupt',
+        'sendDigits' => 'sendDigits',
+        'playAudios' => 'playAudios',
+        'voiceEffect' => 'voiceEffect',
+        'RecordCalls' => 'RecordCalls',
+        'viewApplicationAPI' => 'viewApplicationAPI',
+        'createApplicationAPI' => 'createApplicationAPI',
+        'listApplicationAPI' => 'listApplicationAPI',
+        'updateApplicationAPI' => 'updateApplicationAPI',
+        'deleteApplicationAPI' => 'deleteApplicationAPI',
+        'ViewRecordingAPI' => 'ViewRecordingAPI',
+        'DeleteRecordingAPI' => 'DeleteRecordingAPI',
+        'ListRecordingAPI' => 'ListRecordingAPI',
+        'ListAvailableNumbersAPI' => 'ListAvailableNumbersAPI',
+        'ViewIncomingPhoneNumbersAPI' => 'ViewIncomingPhoneNumbersAPI',
+        'deleteIncomingPhoneNumberAPI' => 'deleteIncomingPhoneNumberAPI',
+        'ListIncomingPhoneNumbersAPI' => 'ListIncomingPhoneNumbersAPI',
+        'updateIncomingPhoneNumberAPI'=>'updateIncomingPhoneNumberAPI',
 
-        'makeCall' =>'makeCall',
-	'listcalls'  =>'listcalls',
-        'viewcalls'  =>'viewcalls',
-        'Interrupt'  =>'Interrupt',
-        'sendDigits' =>'sendDigits',
-        'playAudios'=>'playAudios',
-        'voiceEffect'=>'voiceEffect',
-        'RecordCalls'=>'RecordCalls',
-
-	'viewApplicationAPI' 	  =>'viewApplicationAPI',
-        'createApplicationAPI'=>'createApplicationAPI',
-        'listApplicationAPI'  =>'listApplicationAPI',
-        'updateApplicationAPI'=>'updateApplicationAPI',
-        'deleteApplicationAPI'=>'deleteApplicationAPI',
-                
-       	'ViewRecordingAPI'     =>'ViewRecordingAPI',
-      	'DeleteRecordingAPI'    =>'DeleteRecordingAPI',
-     	'ListRecordingAPI'      =>'ListRecordingAPI', 
-     	       
-        'ListAvailableNumbersAPI'=>'ListAvailableNumbersAPI',
-        'ViewIncomingPhoneNumbersAPI'=>'ViewIncomingPhoneNumbersAPI',
-        'deleteIncomingPhoneNumberAPI'=>'deleteIncomingPhoneNumberAPI',
-        'ListIncomingPhoneNumbersAPI'=>'ListIncomingPhoneNumbersAPI',
-       
-       'sendemailapi'      =>'sendemailapi',
-       'listbounceemailapi'=>'listbounceemailapi',
-       'listspamemailapi'  =>'listspamemailapi',
-       'listblockemailapi'=>'listblockemailapi',
-       'listinvalidemailapi'=>'listinvalidemailapi',
-       'listunsubscribeemailapi'=>'listunsubscribeemailapi',        
-       'deleteblockemailapi'=>'deleteblockemailapi',
-       'deletebouncedemailapi'=>'deletebouncedemailapi',
-       'deletespamemailapi'=>'deletespamemailapi',
-       'deleteinvalideemailapi'=>'deleteinvalideemailapi',
-       'deleteunsubscribeemailapi'=>'deleteunsubscribeemailapi',
-       'addunsubscribeapi'=>'addunsubscribeapi',
-
-	'sendSMSMsg'=>'sendSMSMsg',
-		'viewCampaign'  =>'viewCampaign',
-       'listCampaign'   =>'listCampaign',
-       'createCampaign' =>'createCampaign',
-       'updateCampaign' =>'updateCampaign',
-       'deleteCampaign' =>'deleteCampaign',
-
-       'viewTranscriptionAPI'=>'viewTranscriptionAPI',
-       'listTranscriptionAPI'=>'listTranscriptionAPI',
-       'TranscribeAudioUrlAPI' =>'TranscribeAudioUrlAPI',
-       'TranscribeRecordingAPI'=>'TranscribeRecordingAPI',
-      
-	   'viewConferenceAPI'=>'viewConferenceAPI',
-       'listConferenceAPI'=>'listConferenceAPI',
-       'ViewParticipantAPI'=>'ViewParticipantAPI',
-       'listParticipantAPI'=>'listParticipantAPI',
-       'DeafMuteParticipantAPI'=>'DeafMuteParticipantAPI',
-       'hangupParticipantAPI'=>'hangupParticipantAPI',
-       'playAudioAPI'=>'playAudioAPI',
-       
-	   'viewNotificationAPI'=>'viewNotificationAPI',
-       'listNotificationAPI'=>'listNotificationAPI',
+        /*Email v1 Module*/
+        'sendemailapi' => 'sendemailapi',
+        'listbounceemailapi' => 'listbounceemailapi',
+        'listspamemailapi' => 'listspamemailapi',
+        'listblockemailapi' => 'listblockemailapi',
+        'listinvalidemailapi' => 'listinvalidemailapi',
+        'listunsubscribeemailapi' => 'listunsubscribeemailapi',
+        'deleteblockemailapi' => 'deleteblockemailapi',
+        'deletebouncedemailapi' => 'deletebouncedemailapi',
+        'deletespamemailapi' => 'deletespamemailapi',
+        'deleteinvalideemailapi' => 'deleteinvalideemailapi',
+        'deleteunsubscribeemailapi' => 'deleteunsubscribeemailapi',
+        'addunsubscribeapi' => 'addunsubscribeapi',
+        
+		/*SMS v1 Module*/
+        'sendSMSMsg' => 'sendSMSMsg',
+        'viewSMS' => 'viewSMS',
+        'listSMS' => 'listSMS',
+        'getInboundSMS' => 'getInboundSMS',
 		
-		
+/*Incoming Phone Number*/
+	'viewNumber'=>'viewNumber',
+	'updateNumber'=>'updateNumber',
+
+        'viewCampaign' => 'viewCampaign',
+        'listCampaign' => 'listCampaign',
+        'createCampaign' => 'createCampaign',
+        'updateCampaign' => 'updateCampaign',
+        'deleteCampaign' => 'deleteCampaign',
+        'viewTranscriptionAPI' => 'viewTranscriptionAPI',
+        'listTranscriptionAPI' => 'listTranscriptionAPI',
+        'TranscribeAudioUrlAPI' => 'TranscribeAudioUrlAPI',
+        'TranscribeRecordingAPI' => 'TranscribeRecordingAPI',
+        'viewConferenceAPI' => 'viewConferenceAPI',
+        'listConferenceAPI' => 'listConferenceAPI',
+        'ViewParticipantAPI' => 'ViewParticipantAPI',
+        'listParticipantAPI' => 'listParticipantAPI',
+        'DeafMuteParticipantAPI' => 'DeafMuteParticipantAPI',
+        'hangupParticipantAPI' => 'hangupParticipantAPI',
+        'playAudioAPI' => 'playAudioAPI',
+        'viewNotificationAPI' => 'viewNotificationAPI',
+        'listNotificationAPI' => 'listNotificationAPI',
         /* Direct Mail */
-         
-       'Create'=>'Create',
-	'View'=>'View',        
-	'Lists'=>'Lists',
-	'Delete'=>'Delete',
-	'Verify'=>'Verify',
-
-	'create'=>'create',
-	'view'=>'view',        
-	'lists'=>'lists',
-	'delete'=>'delete',
-	'verify'=>'verify',
-     
-  	'listDestinationsAPIS'=>'listDestinationsAPIS',
-	'authorizeDestinationAPIS'=>'authorizeDestinationAPIS',
-	'whiteListDestinationAPIS'=>'whiteListDestinationAPIS',
-	'blockAPIS'=>'blockAPIS',
-	'extentAuthorizeAPIS'=>'extentAuthorizeAPIS',
-      
+        'Create' => 'Create',
+        'View' => 'View',
+        'Lists' => 'Lists',
+        'Delete' => 'Delete',
+        'Verify' => 'Verify',
+        'create' => 'create',
+        'view' => 'view',
+        'lists' => 'lists',
+        'delete' => 'delete',
+        'verify' => 'verify',
+        'listDestinationsAPIS' => 'listDestinationsAPIS',
+        'authorizeDestinationAPIS' => 'authorizeDestinationAPIS',
+        'whiteListDestinationAPIS' => 'whiteListDestinationAPIS',
+        'blockAPIS' => 'blockAPIS',
+        'extentAuthorizeAPIS' => 'extentAuthorizeAPIS',
     );
-    
-    
+
     /**
      * Current component key which will be passed out to the Connector class
      * when the time comes
@@ -143,25 +156,22 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * @var string|null
      */
     private $_component = null;
-    
+
     /**
      * Client token. When generated, it will be "saved" here
      * 
      * @var array
      */
     protected $_clientToken = array();
-    
-    
+
     /**
      * Generated headers (credentials) which came from successful authorisation
      *
      * @var array
      */
     protected static $_connectHeaders = array();
-    
-    
-    /** *********** OPTION RELATED METHODS ************** **/
 
+    /**     * ********** OPTION RELATED METHODS ************** * */
 
     /**
      * Set a list of options all at once.
@@ -170,9 +180,10 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * @return void
      */
     function setOptions(Array $options) {
-        foreach($options as $key => $value) $this->setOption($key, $value);
+        foreach ($options as $key => $value)
+            $this->setOption($key, $value);
     }
-    
+
     /**
      * Set a single option for the Message360 wrapper. If option key doesn't exist it will
      * throw that the key itself is not available and therefore cannot be found.
@@ -183,13 +194,12 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * @return void
      */
     function setOption($key, $value) {
-        if(!array_key_exists(strtolower($key), self::$_options)) {
+        if (!array_key_exists(strtolower($key), self::$_options)) {
             throw new Message360_Exception("Provided option '{$key}' cannot be found");
         }
         self::$_options[strtolower($key)] = $value;
     }
-    
-    
+
     /**
      * Get singular option value. If value is not set, null will be returned
      * 
@@ -197,14 +207,11 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * @return mixed
      */
     function option($key) {
-        return isset(self::$_options[strtolower($key)]) 
-               ? self::$_options[strtolower($key)] : null;
+        return isset(self::$_options[strtolower($key)]) ? self::$_options[strtolower($key)] : null;
     }
-    
-    
-    /** *********** QUERY RELATED METHODS ************** **/
-    
-    
+
+    /**     * ********** QUERY RELATED METHODS ************** * */
+
     /**
      * Get resource by component and component SID
      * 
@@ -212,29 +219,28 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * @param  array        $parameters 
      * @return Message360_Connector
      */
-    function get($component,$action, Array $parameters=array()) {
+    function get($component, $action, Array $parameters = array()) {
         return new Message360_Connector($this->_execute(
-            rtrim($this->_buildBaseUrl() .$component.'/'. $this->_buildUrl($action, $parameters), '/') 
-            .
-            $this->_buildParameters($parameters)
-         ), $this->option('response_to_array'), $this->_component);
+                        rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $parameters), '/')
+                        .
+                        $this->_buildParameters($parameters)
+                ), $this->option('response_to_array'), $this->_component);
     }
-    
-    
+
     /**
      * POSTING (Creating) new documents for desired resources, such as sending new
      * SMS messages
      * 
-     * @param  string|array $component
+     * @param  string[] $component
      * @param  array        $data
      * @return Message360_Connector 
      */
-    function create($component,$action, Array $data) {
-        $creation_url = rtrim($this->_buildBaseUrl() .$component.'/'. $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-        $post_params  = $this->_buildPostParameters($data);
+    function create($component, $action, Array $data) {
+        $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
+        $post_params = $this->_buildPostParameters($data);
         return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
     }
-    	
+
     /**
      * POSTING (Updating) documents for desired resources, such as sending new
      * SMS messages
@@ -243,23 +249,23 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * @param  array        $data
      * @return Message360_Connector 
      */
-  function listAll($component,$action, Array $data=array()) {
-       $creation_url = rtrim($this->_buildBaseUrl() .$component.'/'. $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-       $post_params  = $this->_buildPostParameters($data);
-       return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
-   }
-    function update($component,$action, Array $data) {
-       $creation_url = rtrim($this->_buildBaseUrl() .$component.'/'. $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-       $post_params  = $this->_buildPostParameters($data);
-       return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
-   }
-	
-   function post($component,$action, Array $data=array()) {
-       $creation_url = rtrim($this->_buildBaseUrl() .$component.'/'. $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-       $post_params  = $this->_buildPostParameters($data);
-       return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
-   }
-    
+    function listAll($component, $action, Array $data = array()) {
+        $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
+        $post_params = $this->_buildPostParameters($data);
+        return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
+    }
+
+    function update($component, $action, Array $data) {
+        $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
+        $post_params = $this->_buildPostParameters($data);
+        return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
+    }
+
+    function post($component, $action, Array $data = array()) {
+        $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
+        $post_params = $this->_buildPostParameters($data);
+        return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
+    }
 
     /**
      * DELETING resources such as recordings.
@@ -267,41 +273,38 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
      * so please consult REST documentation on the Message360 site.
      * 
      * @param  string|array $component 
-     * @param  array        $data
      * @return Message360_Connector 
      */
-   function delete($component,$action,Array $parameters=array()) {
-          return new Message360_Connector($this->_execute(
-           rtrim($this->_buildBaseUrl() .$component.'/'. $this->_buildUrl($action, $parameters), '/') 
-           .
-           $this->_buildParameters($parameters)
-        ), $this->option('response_to_array'), $this->_component);
-   }
-    
-    /** *********** CLIENT RELATED METHODS ************** **/
-    
-    
+    function delete($component, $action, Array $parameters = array()) {
+        return new Message360_Connector($this->_execute(
+                        rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $parameters), '/')
+                        .
+                        $this->_buildParameters($parameters)
+                ), $this->option('response_to_array'), $this->_component);
+    }
+
+    /**     * ********** CLIENT RELATED METHODS ************** * */
+
     /**
      * Return an instance of the Message360 Client class
      * 
-     * @return Class <Message360_Client, self, NULL>
+     * @return Message360_Client <Message360_Client, self, NULL>
      */
     function getClient() {
-    	return Message360_Client::getInstance();
+        return Message360_Client::getInstance();
     }
-    
+
     /**
      * Return an instance of the Message360 Connect class
      *
      * @return Class <Message360_Connect, self, NULL>
      */
     function getConnect() {
-    	return Message360_Connect::getInstance();
+        return Message360_Connect::getInstance();
     }
-    
-    /** *********** INTERNAL METHODS ************** **/
-    
-    
+
+    /**     * ********** INTERNAL METHODS ************** * */
+
     /**
      * Building base URL of Message360 wrapper. This will set 
      * https://{url}/{version}/accounts/account_sid
@@ -314,18 +317,18 @@ CONST API_URL              = 'https://api-dev.message360.com/api/v1b/';
 
         //$return_url = self::API_URL . $this->_getBaseVersion() . '/';
 
-$return_url = self::API_URL;      
-        if(is_null($this->option('account_sid'))) {
+        $return_url = self::API_URL;
+        if (is_null($this->option('account_sid'))) {
             throw new Message360_Exception(
-                "Please set account_sid option. You need to pass account_sid option as 
+            "Please set account_sid option. You need to pass account_sid option as 
                 auth_token in order to authenticate and/or use Message360 wrapper"
             );
         }
-        
-       // $return_url .= self::API_START_COMPONENT . '/' . $this->option('account_sid') . '/';
+
+        // $return_url .= self::API_START_COMPONENT . '/' . $this->option('account_sid') . '/';
         return $return_url;
     }
-    
+
     /**
      * Get base version of the Message360 REST API endpoint.
      * 
@@ -334,18 +337,16 @@ $return_url = self::API_URL;
      */
     private function _getBaseVersion() {
         $base_version = strtolower($this->option('api_version'));
-        
-        if(!in_array($base_version, $this->_availableVersions)) {
+
+        if (!in_array($base_version, $this->_availableVersions)) {
             $base_versions = implode(', ', $this->_availableVersions);
             throw new Message360_Exception("Defined version '{$base_version}' does not exist. Please use one of following versions: '{$base_versions}'");
         }
-        
+
         $this->setOption('api_version', $base_version);
         return $this->option('api_version');
     }
 
-
-    
     /**
      * This will build URL of Message360 wrapper after the AccountSid with or without
      * possible GET parameters like ?PageSize=20
@@ -355,94 +356,94 @@ $return_url = self::API_URL;
      * @return string
      * @throws Message360_Exception
      */
-    private function _buildUrl($component, Array $parameters=array()) {
-    $return_url = '';
-	
-	$this->_component = $component;
-            if(!is_null($this->_components[$component]))
-                $return_url .= $this->_components[$component] . '/';
-       		 return $return_url;
+    private function _buildUrl($component, Array $parameters = array()) {
+        $return_url = '';
+
+        $this->_component = $component;
+        if (!is_null($this->_components[$component]))
+            $return_url .= $this->_components[$component] . '/';
+        return $return_url;
     }
-    
-    
+
     /**
      * Building GET query parameters will return blank if there are no parameters
      * 
      * @param  array  $parameters
      * @return string 
      */
-    private function _buildParameters(Array $parameters=array()) {
+    private function _buildParameters(Array $parameters = array()) {
         $return_params = '';
-        
-        if(count($parameters) > 0) {
+
+        if (count($parameters) > 0) {
             $return_params = '/';
-            
-            foreach($parameters as $parameter => $value) {
-                if(is_array($value)) {
-                    foreach($value as $subvalue) {
-                        $return_params .= $subvalue.'/';
+
+            foreach ($parameters as $parameter => $value) {
+                if (is_array($value)) {
+                    foreach ($value as $subvalue) {
+                        $return_params .= $subvalue . '/';
                     }
                 } else {
-                    $return_params .=$value.'/';
+                    $return_params .=$value . '/';
                 }
             }
-            
+
             $return_params = rtrim($return_params, '/');
         }
-       // echo $return_params. '.' . self::WRAPPER_JSON
-        return $return_params. '.' . self::WRAPPER_JSON;
+        // echo $return_params. '.' . self::WRAPPER_JSON
+        return $return_params . '.' . self::WRAPPER_JSON;
     }
-    
-    
+
     /**
      * Building GET query parameters will return blank if there are no parameters
      * 
      * @param  array  $parameters
      * @return string 
      */
-    private function _buildPostParameters(Array $parameters=array()) {
+    private function _buildPostParameters(Array $parameters = array()) {
         $return_params = '';
-        
-        if(count($parameters) > 0) {
-        
-            foreach($parameters as $parameter => $value) {
-                if(is_array($value)) {
-                
-                    foreach($value as $subvalue) {
-                        $return_params .= $parameter.'='.urlencode($subvalue).'&';
+
+        if (count($parameters) > 0) {
+
+            foreach ($parameters as $parameter => $value) {
+                if (is_array($value)) {
+
+                    foreach ($value as $subvalue) {
+                        $return_params .= $parameter . '=' . urlencode($subvalue) . '&';
                     }
                 } else {
-                	$retrun=$this->_startsWith($value,"@");
-                	$retrun1=$this->_startsWith($value,"http");
-					$retrun2=$this->_findWith($value,"@");
- 			if($retrun||$retrun1||$retrun2)
- 			{
- 			$return_params .= $parameter.'='.$value.'&';
- 			}
-			
- 			else
- 			{           
-                    $return_params .= $parameter.'='.$value.'&';
-                              //$return_params .= $parameter.'='.urlencode($value).'&';
+                    $retrun = $this->_startsWith($value, "@");
+                    $retrun1 = $this->_startsWith($value, "http");
+                    $retrun2 = $this->_findWith($value, "@");
+                    if ($retrun || $retrun1 || $retrun2) {
+                        $return_params .= $parameter . '=' . $value . '&';
+                    } else {
+                        $return_params .= $parameter . '=' . $value . '&';
+                        //$return_params .= $parameter.'='.urlencode($value).'&';
                     }
                 }
             }
             $return_params = rtrim($return_params, '&');
         }
-        
+
         return $return_params;
     }
 
-private function _startsWith($haystack, $needle) {
-    // search backwards starting from haystack length characters from the end
-    return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
-}
+    /**
+     * @param string $needle
+     */
+    private function _startsWith($haystack, $needle) {
+        // search backwards starting from haystack length characters from the end
+        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
+    }
 
-private function _findWith($haystack, $needle) {
-    // search backwards starting from haystack length characters from the end
-    return $needle === "" || strrpos($haystack, $needle) !== FALSE;
-}
-    
+    /**
+     * @param string $needle
+     */
+    private function _findWith($haystack, $needle) {
+        // search backwards starting from haystack length characters from the end
+        return $needle === "" || strrpos($haystack, $needle) !== FALSE;
+    }
+
     /**
      * Do the actual curl request
      * 
@@ -451,59 +452,62 @@ private function _findWith($haystack, $needle) {
      * @param  string  $params
      * @return array 
      */
-    private function _execute($url, $type='GET', $params=null){
+    private function _execute($url, $type = 'GET', $params = null) {
         $type = strtoupper($type);
         $account_sid = $this->option('account_sid');
-        $auth_token  = $this->option('auth_token');
-        $response    = array();
-        
-        if(substr($url, 0, 4) == 'http') $curl_port = 80;
-        if(substr($url, 0, 5) == 'https') $curl_port = 443;
-        
-        if($resource = curl_init()) {
+        $auth_token = $this->option('auth_token');
+        $response = array(); 
+        $curl_port = 80;
+        if (substr($url, 0, 4) == 'http')
+            $curl_port = 80;
+        if (substr($url, 0, 5) == 'https')
+            $curl_port = 443;
+
+        if ($resource = curl_init()) {
             $curl_opts = array(
-                CURLOPT_URL            => $url,
-                CURLOPT_PORT           => $curl_port,
-                CURLOPT_HEADER         => FALSE,
+                CURLOPT_URL => $url,
+                CURLOPT_PORT => $curl_port,
+                CURLOPT_HEADER => FALSE,
                 CURLOPT_RETURNTRANSFER => TRUE,
-                CURLOPT_TIMEOUT        => 0,
+                CURLOPT_TIMEOUT => 0,
                 CURLOPT_SSL_VERIFYPEER => FALSE,
-                CURLOPT_USERPWD        => "{$account_sid}:{$auth_token}",
+                CURLOPT_USERPWD => "{$account_sid}:{$auth_token}",
             );
-                
-            if($type == 'DELETE') {
+
+            if ($type == 'DELETE') {
                 $curl_opts[CURLOPT_CUSTOMREQUEST] = 'DELETE';
             }
-            
-            if($type == 'POST') {
-            	
-            	$params=explode('&', $params);
-				foreach ($params as $key => $value) {
-					$params=explode("=", $value);
-					$params1=$params[0];
-					$params2=$params[1];
-					$params12[$params1]=$params2;
-				}
-            	$params=$params12;
+
+            if ($type == 'POST') {
+
+                $params = explode('&', $params);
+                $params12=array();
+                foreach ($params as $key => $value) {
+                    $params = explode("=", $value);
+                    $params1 = $params[0];
+                    $params2 = $params[1];
+                    $params12[$params1] = $params2;
+                }
+                $params = $params12;
 
                 $curl_opts[CURLOPT_POST] = 1;
                 $curl_opts[CURLOPT_POSTFIELDS] = $params;
             }
-            
-            if($this->getConnect()->getStatus() === true) {
-	            if(count(self::$_connectHeaders) > 0) {
-	            	$curl_opts[CURLOPT_HTTPHEADER] = self::$_connectHeaders;
-	            }
+
+            if ($this->getConnect()->getStatus() === true) {
+                if (count(self::$_connectHeaders) > 0) {
+                    $curl_opts[CURLOPT_HTTPHEADER] = self::$_connectHeaders;
+                }
             }
-            
-            if(curl_setopt_array($resource, $curl_opts)) {
-                $response['exec']  = curl_exec($resource);
+
+            if (curl_setopt_array($resource, $curl_opts)) {
+                $response['exec'] = curl_exec($resource);
                 $response['error'] = curl_error($resource);
                 $response['errno'] = curl_errno($resource);
-                $response['info']  = curl_getinfo($resource);
+                $response['info'] = curl_getinfo($resource);
             }
         }
-       return $response;
-       //echo "<pre>";print_r($response);die;echo "</pre>";
+        return $response;
     }
+
 }
