@@ -6,7 +6,6 @@ class Message360_Connect extends Message360_Related
 	
 	protected static $_status   = true;
 	
-	
 	static function getInstance() {
 		if(is_null(self::$_instance)) self::$_instance = new self();
 		return self::$_instance;
@@ -17,7 +16,7 @@ class Message360_Connect extends Message360_Related
 			new Message360_Exception("Please provide valid Connect SID in order to generate Connect URL");
 		}
 		
-		return 'http://www.message360.com/connect/authorize/' . $connect_sid;
+		return 'https://www.message360.com/connect/authorize/' . $connect_sid;
 	}
 	
 	

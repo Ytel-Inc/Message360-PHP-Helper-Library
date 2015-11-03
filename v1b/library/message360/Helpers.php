@@ -19,5 +19,4 @@ class Message360_Helpers
 
         return $e164;
     } 
-    
 }

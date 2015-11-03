@@ -14,7 +14,6 @@ require_once 'Schemas.php';
  * Online documentation can be found at: https://api.message360.com/Docs/Accounts/viewaccount/
  * --------------------------------------------------------------------------------
  */
-
 class Message360_InboundXML
 {
     
@@ -35,7 +34,7 @@ class Message360_InboundXML
     /**
      * Constructs a InboundXML response.
      *
-     * @param SimpleXmlElement|array $arg:
+     * @param SimpleXmlElement|array $arg 
      *   - the element to wrap
      *   - attributes to add to the element
      *   - if null, initialize an empty element named 'Response'
@@ -66,7 +65,7 @@ class Message360_InboundXML
     /**
      * Converts method calls into InboundXML verbs.
      *
-     * @return SimpleXmlElement A SimpleXmlElement
+     * @return Message360_InboundXML A SimpleXmlElement
      */
     public function __call($verb, array $args) {
 
@@ -83,14 +82,6 @@ class Message360_InboundXML
 
         if (is_array($noun)) list($attrs, $noun) = array($noun, '');
 		
-		//echo $verb;die;
-		
-		//if (empty($noun)){$noun=" ";}
-		
-        /*$child = empty($noun)
-            ? $this->element->addChild(ucfirst($verb))
-            : $this->element->addChild(ucfirst($verb), $noun);
-          */
           
           $child = empty($noun)
             ? $this->element->addChild(ucfirst($verb),$noun)
@@ -100,7 +91,6 @@ class Message360_InboundXML
             $this->_validateAttribute($name, $verb);
             $child->addAttribute($name, $value);
         }
-		//echo new self($child);die;
         return new self($child);
         
     }

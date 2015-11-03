@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Afzal Patel <afzal@ytel.co.in>
+ * @version V1.1(v1b)
+ */
 
 if( floatval(phpversion()) < 5.2) {
     trigger_error(sprintf(
