@@ -53,11 +53,11 @@ abstract class Message360_Related {
         'deleteUnsubscribedEmail' => 'deleteUnsubscribedEmail',
         'addUnsubscribesEmail' => 'addUnsubscribesEmail',
          /*SMS v1b Module*/
-		 'sendSms' => 'sendSms',
-         'listSms' => 'listSms',
-         'viewSms' => 'viewSms',
-         'getInboundSms' => 'getInboundSms',
-         'numberOptIn' => 'numberOptIn', 
+		 'sendsms' => 'sendsms',
+         'listsms' => 'listsms',
+         'viewsms' => 'viewsms',
+         'getinboundsms' => 'getinboundsms',
+         'numberoptin' => 'numberoptin', 
          	
     	/*Incoming Phone Number*/
     	'viewNumber'=>'viewNumber',
