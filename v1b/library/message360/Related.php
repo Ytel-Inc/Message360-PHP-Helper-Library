@@ -12,7 +12,6 @@ abstract class Message360_Related {
     CONST WRAPPER_XML = 'xml';
 
     /** BASE Message360 URI */
-    //CONST API_URL = 'https://api-dev.message360.com/api/v1b/';
     CONST API_URL = 'https://api.message360.com/api/v1b/';
 
     /** BASE Message360 API VERSION */
@@ -59,10 +58,12 @@ abstract class Message360_Related {
          'getinboundsms' => 'getinboundsms',
          'numberoptin' => 'numberoptin', 
          	
-    	/*Incoming Phone Number*/
+    	/*Incoming Phone Number v1b Module*/
     	'viewNumber'=>'viewNumber',
     	'updateNumber'=>'updateNumber',
     	'listNumber' => 'listNumber',
+    	'buyNumber' => 'buyNumber', 
+    	'releaseNumber' => 'releaseNumber',
 	
         'TranscribeAudioUrlAPI' => 'TranscribeAudioUrlAPI',
         'ListAvailableNumbersAPI' => 'ListAvailableNumbersAPI',
