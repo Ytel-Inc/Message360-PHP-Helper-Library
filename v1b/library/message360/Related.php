@@ -64,6 +64,11 @@ abstract class Message360_Related {
     	'listNumber' => 'listNumber',
     	'buyNumber' => 'buyNumber', 
     	'releaseNumber' => 'releaseNumber',
+    	
+		/*Recording v1b Module*/
+		'viewRecording' => 'viewRecording',
+        'listRecord' => 'listRecord',
+        'deleteRecording' => 'deleteRecording',
 	
         'TranscribeAudioUrlAPI' => 'TranscribeAudioUrlAPI',
         'ListAvailableNumbersAPI' => 'ListAvailableNumbersAPI',
