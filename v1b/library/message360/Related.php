@@ -64,6 +64,15 @@ abstract class Message360_Related {
     	'listNumber' => 'listNumber',
     	'buyNumber' => 'buyNumber', 
     	'releaseNumber' => 'releaseNumber',
+	/*Conference v1b Module*/
+       'viewConference'=>'viewConference',
+       'viewParticipant'=>'viewParticipant',
+       'addParticipant'=>'addParticipant',
+       'listParticipant'=>'listParticipant',
+       'listConference'=>'listConference',
+       'hangupParticipant'=>'hangupParticipant',
+       'deafMuteParticipant'=>'deafMuteParticipant',
+       'playAudio'=>'playAudio',
     	
 		/*Recording v1b Module*/
 		'viewRecording' => 'viewRecording',
