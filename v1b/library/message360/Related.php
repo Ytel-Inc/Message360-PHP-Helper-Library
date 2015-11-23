@@ -162,6 +162,10 @@ abstract class Message360_Related {
         'whiteListDestinationAPIS' => 'whiteListDestinationAPIS',
         'blockAPIS' => 'blockAPIS',
         'extentAuthorizeAPIS' => 'extentAuthorizeAPIS',
+        
+		/*Carrier*/
+		'lookup'=>'lookup',
+		'lookuplist'=>'lookuplist',
     );
 
     /**
