@@ -166,6 +166,12 @@ abstract class Message360_Related {
 		/*Carrier*/
 		'lookup'=>'lookup',
 		'lookuplist'=>'lookuplist',
+		
+		 /*Transcription*/
+        'viewTranscription' => 'viewTranscription',
+        'listTranscription' => 'listTranscription',
+        'audioUrlTranscription' => 'audioUrlTranscription',
+        'recordingTranscription' => 'recordingTranscription'
     );
 
     /**
