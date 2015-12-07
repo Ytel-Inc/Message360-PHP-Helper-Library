@@ -25,7 +25,6 @@ $call = $Message360->create('Calls','makeCall', array(
 'FallbackMethod' => 'XXXXXX', //optional
 'HeartbeatUrl' => 'XXXXXX', //optional
 'HeartbeatMethod' => 'XXXXXX', //optional
-'ForwardedFrom' => 'XXXXXX', //optional
 'Timeout' => 'XXXXXX', //optional
 'PlayDtmf' => 'XXXXXX', //optional
 'HideCallerId' => 'XXXXXX', //optional
