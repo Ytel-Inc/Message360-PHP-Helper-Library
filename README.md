@@ -40,7 +40,7 @@ Empowering technology to meet modern day communication needs. Through a simple t
 
 Communicating with prospects, leads and customers is the single most important thing when protecting and growing your business. Now, take it to the next level by imagining the possibilities and how your business can communicate with these people.
 
-More information can be obtained about message30 at [http://www.message360.com](http://message360.com/)
+More information can be obtained about message360 at [http://www.message360.com](http://message360.com/)
 
 ### Support or Contact
 Having trouble with Pages or the library?  Visit [https://api.message360.com](https://api.message360.com) and click the Help button in the bottom right corner or [contact support](mailto:support@ytel.com) and we’ll help you sort it out.
