@@ -10,11 +10,11 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   	// Fetch phone number details
+   	// Fetch available phone number details
     $availablePhoneNumbers = $Message360->create('Incomingphone','availableNumber',array(
-		"numberType" => 'all',  // numberType => voice/sms/all (String)
-		"areacode" => xxx, 		// eg. "areacode" => 800, 	(Number)	(Default value is 'all')
-		"pagesize" => xx		// eg. "pagesize" => 13   	(Number)	(default value is 10)
+		"numberType" => 'all',  //required numberType => voice/sms/all (String)
+		"areacode" => xxx, 		//required eg. "areacode" => 800, 	(Number)	(Default value is 'all')
+		"pagesize" => xx		//optional eg. "pagesize" => 13   	(Number)	(default value is 10)
 	)); 
    	// Print content of the phone number  objects
    	foreach($availablePhoneNumbers->getResponse() as $availableNumber) 
