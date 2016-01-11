@@ -11,10 +11,17 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-# Fetch calls
- $calls = $Message360->get('Calls','viewCalls',array('XXXXXX'));
+# Record Call
+$recordCall = $Message360->create('Calls','recordCall', array(
+        'CallSid' => 'XXXXXX',
+        //'Record'   => 'X',//optional
+        //'Direction'  => 'XXXXXX',//optional
+        //'TimeLimit	'  => 'XXXXXX',//optional
+        //'CallbackUrl'  => 'XXXXXX',//optional
+        //'FileFormat'  => 'XXXXXX',//optional
+    ));
 # Print content of the calls objects
- print_r($calls->getResponse());
+ print_r($recordCall->getResponse());
 } 
 catch (Message360_Exception $e) 
 {

@@ -1,5 +1,5 @@
 <?php
-
+namespace Message360API\Lib;
 class Message360_Connect extends Message360_Related
 {
 	protected static $_instance = null;

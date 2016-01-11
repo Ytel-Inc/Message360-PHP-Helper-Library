@@ -1,6 +1,6 @@
 <?php
 
-class Message360_Client extends Message360_Related {
+class Message360_Client extends Message360API\Lib\Message360_Related {
 
     /**
      * Singleton instance container

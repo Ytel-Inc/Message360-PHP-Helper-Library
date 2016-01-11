@@ -1,4 +1,5 @@
 <?php
+namespace Message360API\Lib;
 /**
  * @author Afzal Patel <afzal@ytel.co.in>
  * @version V1.1(v1b)

@@ -1,10 +1,9 @@
 <?php
-
+namespace Message360API\Lib;
 /** @see Message360_Exception * */
 require_once 'Exception.php';
 
 class Message360_Connector {
-
     protected $curl_data = array();
     protected $response_association = false;
     protected $_component = null;
