@@ -11,14 +11,18 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-	  $addUnsubscribes = $Message360->create('Email','addUnsubscribesEmail', array(
-        'email'   => 'test@example.com'
-    ));
-	//Print content of the add unsubscribes email address object
-	print_r($addUnsubscribes->getResponse());
+    // Fetch listUsage
+    $listUsage = $Message360->listAll('usage','listusage',array(
+	    //'ProductCode'=> 0 , //optional
+	    //'StartDate'=>10, //optional
+	    //'EndDate'=>'XXXX-XX-XX', //optional
+	));
+   // Print content of the $listUsage objects
+   print_r($listUsage->getResponse());
+   
 } 
 catch (Message360_Exception $e) 
 {
-    echo "Error occured: " . $e->getMessage() . "\n";   
+  echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

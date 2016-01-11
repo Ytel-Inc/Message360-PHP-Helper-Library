@@ -1,4 +1,5 @@
 <?php
+namespace Message360API\Lib;
 /**
  * @author Afzal Patel <afzal@ytel.co.in>
  * @version V1.1(v1b)
@@ -35,9 +36,9 @@ abstract class Message360_Related {
      */
     private $_components = array(
         /*Account Module*/
-        'viewAccount' => 'viewAccount',
+        'viewaccount' => 'viewaccount',
         /*Usages Module*/
-        'listUsage' => 'listUsage',
+        'listusage' => 'listusage',
         /*Email v1b Module*/
         'sendEmails' => 'sendEmails',
         'listBlockEmail' => 'listBlockEmail',

@@ -11,14 +11,18 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-# Interrupt Call
-$sendDigits = $Message360->create('Calls','sendDigits', array(
+# Voice Effect
+$voiceEffect = $Message360->create('Calls','voiceEffect', array(
         'CallSid' => 'XXXXXX',
-        'PlayDtmf'   => 'X',
-        'PlayDtmfDirection'  => 'XXXXXX',
+        //'AudioDirection'   => 'X',//optional
+        //'PitchSemiTones'  => 'XXXXXX',//optional
+        //'PitchOctaves'  => 'XXXXXX',//optional
+        //'Pitch'  => 'XXXXXX',//optional
+        //'Rate'  => 'XXXXXX',//optional
+        //'Tempo	'  => 'XXXXXX',//optional
     ));
 # Print content of the calls objects
-print_r($sendDigits->getResponse());
+print_r($voiceEffect->getResponse());
 } 
 catch (Message360_Exception $e) 
 {

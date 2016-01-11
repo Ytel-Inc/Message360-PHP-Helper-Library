@@ -5,20 +5,20 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 // Message360 REST API credentials are required
 $Message360 -> setOptions(array( 
-    'account_sid'       => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', 
-    'auth_token'        => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
+    'account_sid'       => 'YT94c49d220e5a45dc516f9733460460f5', 
+    'auth_token'        => '53ee61684ef2a3805fb4721dfdf9672f',
     'response_to_array' =>true,
 ));
+
 try 
-{
-	  $addUnsubscribes = $Message360->create('Email','addUnsubscribesEmail', array(
-        'email'   => 'test@example.com'
-    ));
-	//Print content of the add unsubscribes email address object
-	print_r($addUnsubscribes->getResponse());
+{    
+    // Fetch Account
+    $viewAccount = $Message360->get('accounts','viewaccount');
+    // Print content of the $viewAccount objects
+    print_r($viewAccount->getResponse());
 } 
 catch (Message360_Exception $e) 
 {
-    echo "Error occured: " . $e->getMessage() . "\n";   
+  echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>
