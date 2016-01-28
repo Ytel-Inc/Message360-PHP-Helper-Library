@@ -9,24 +9,23 @@ $Message360 -> setOptions(array(
     'auth_token'        => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     'response_to_array' =>true,
 ));
-try 
-{
+try {
     // Fetch listSMS
     $listSMS = $Message360->listAll('sms','listsms',array(
-	    'Page'=> 1 , //optional
-	    'PageSize'=>10, //optional
-	    'DateSent'=>'XXXX-XX-XX', //optional
-	    'From'=>'XXXXXXXXXX', //optional
-	    'To'=>'XXXXXXXXXX', //optional
-	));
-   // Print content of the $listSMS objects
-   foreach($listSMS->getResponse() as $listsSMS) 
-   {
-     print_r($listsSMS);
-   }
+        'Page'=> 1 , //optional
+        'PageSize'=>10, //optional
+        'DateSent'=>'XXXX-XX-XX', //optional
+        'From'=>'XXXXXXXXXX', //optional
+        'To'=>'XXXXXXXXXX', //optional
+    ));
+    // Print content of the $listSMS objects
+    foreach($listSMS->getResponse() as $listsSMS) 
+    {
+        print_r($listsSMS);
+    }
 } 
 catch (Message360_Exception $e) 
 {
-  echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

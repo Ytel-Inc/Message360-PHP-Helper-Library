@@ -39,7 +39,8 @@ class Message360_InboundXML
      *   - attributes to add to the element
      *   - if null, initialize an empty element named 'Response'
      */
-    public function __construct($arg = null) {
+    public function __construct($arg = null)
+    {
         switch (true) {
             case $arg instanceof SimpleXmlElement:
                 $this->element = $arg;
@@ -67,7 +68,8 @@ class Message360_InboundXML
      *
      * @return Message360_InboundXML A SimpleXmlElement
      */
-    public function __call($verb, array $args) {
+    public function __call($verb, array $args)
+    {
 
         /** convert verbs input like-this-one to LikeThisOne **/
         $verb = preg_replace("/[-_]([a-z])/e", "ucfirst('\\1')", ucwords($verb));
@@ -80,10 +82,12 @@ class Message360_InboundXML
         
         list($noun, $attrs) = $args + array('', array());
 
-        if (is_array($noun)) list($attrs, $noun) = array($noun, '');
+        if (is_array($noun)) {
+            list($attrs, $noun) = array($noun, '');
+        }
 		
           
-          $child = empty($noun)
+            $child = empty($noun)
             ? $this->element->addChild(ucfirst($verb),$noun)
             : $this->element->addChild(ucfirst($verb), $noun);
         foreach ($attrs as $name => $value) {
@@ -101,7 +105,8 @@ class Message360_InboundXML
      *
      * @return string The response as an XML string
      */
-    public function __toString() {
+    public function __toString()
+    {
         $xml = $this->element->asXml();
 		
         return str_replace(
@@ -120,10 +125,11 @@ class Message360_InboundXML
      * @throws Message360_Exception 
      * @return bool
      */
-    private function _validateVerb($verb) {
+    private function _validateVerb($verb)
+    {
         $schemas = Message360_Schemas::getInstance();
         
-        if(!$schemas->isVerb(ucfirst($verb))) {
+        if (!$schemas->isVerb(ucfirst($verb))) {
             $available_verbs = implode(', ', $schemas->getAvailableVerbs());
             throw new Message360_Exception(
                 "Verb '{$verb}' is not a valid InboundXML verb. Available verbs are: '{$available_verbs}'"
@@ -141,10 +147,11 @@ class Message360_InboundXML
      * @return boolean
      * @throws Message360_Exception 
      */
-    private function _validateNesting($verb) {
+    private function _validateNesting($verb)
+    {
         $schemas = Message360_Schemas::getInstance();
         
-        if(!$schemas->isNestingAllowed(ucfirst($this->_currentChild), ucfirst($verb))) {
+        if (!$schemas->isNestingAllowed(ucfirst($this->_currentChild), ucfirst($verb))) {
             $nestable_verbs = implode(', ', $schemas->getNestableByVerbs(ucfirst($this->_currentChild)));
             $current_verb   = ucfirst($this->_currentChild);
             $next_verb      = ucfirst($verb);
@@ -165,10 +172,11 @@ class Message360_InboundXML
      * @return boolean
      * @throws Message360_Exception 
      */
-    private function _validateAttribute($attr, $verb) {
+    private function _validateAttribute($attr, $verb)
+    {
         $schemas = Message360_Schemas::getInstance();
         
-        if(!$schemas->isValidAttribute($attr, ucfirst($verb))) {
+        if (!$schemas->isValidAttribute($attr, ucfirst($verb))) {
             $verb_attribuges = implode(', ', $schemas->getAvailableAttributes(ucfirst($verb)));
             throw new Message360_Exception(
                 "Attribute '{$attr}' does not exist for verb '{$verb}'. Available attributes are: '{$verb_attribuges}'"

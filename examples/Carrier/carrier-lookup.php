@@ -10,12 +10,12 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   //Send Request
-   $carrierLookup = $Message360->post('carrier','lookup', array(
-          'phonenumber'   => 'XXXXXXXXXX', //required
+    //Send Request
+    $carrierLookup = $Message360->post('carrier','lookup', array(
+            'phonenumber'   => 'XXXXXXXXXX', //required
     ));
-   // Print content of the $carrierLookup objects
-   print_r($carrierLookup->getResponse());
+    // Print content of the $carrierLookup objects
+    print_r($carrierLookup->getResponse());
 }
 catch (Message360_Exception $e) 
 {

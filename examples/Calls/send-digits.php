@@ -5,14 +5,13 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 # Message360 REST API credentials are required
 $Message360 -> setOptions(array( 
-   'account_sid'       => 'XXXXXX', 
-   'auth_token'        => 'XXXXXX',    
-   'response_to_array' => true,
+    'account_sid'       => 'XXXXXX', 
+    'auth_token'        => 'XXXXXX',    
+    'response_to_array' => true,
 ));
-try 
-{
+try {
 # Interrupt Call
-$sendDigits = $Message360->create('Calls','sendDigits', array(
+$sendDigits = $Message360->create('Calls', 'sendDigits', array(
         'CallSid' => 'XXXXXX',
         'PlayDtmf'   => 'X',
         'PlayDtmfDirection'  => 'XXXXXX',
@@ -22,5 +21,5 @@ print_r($sendDigits->getResponse());
 } 
 catch (Message360_Exception $e) 
 {
-   echo "Error occured: " . $e->getMessage() . "\n";   
+    echo "Error occured: " . $e->getMessage() . "\n";   
 }

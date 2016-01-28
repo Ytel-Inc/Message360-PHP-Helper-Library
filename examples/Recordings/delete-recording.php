@@ -5,17 +5,17 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 # Ytel REST API credentials are required
 $Message360 -> setOptions(array( 
-  	'account_sid'       => 'xxxxxxxxxx', 
+        'account_sid'       => 'xxxxxxxxxx', 
     'auth_token'        => 'xxxxxxxxxx',
     'response_to_array' => true,        
 ));
 try 
 {
-  	 # delete an recording
-     $deleteRecording = $Message360->delete('Recording','deleteRecording',array('recordingId'=>'xxxxxxxxxx'));
-	 # Print content of the recording object
+        # delete an recording
+        $deleteRecording = $Message360->delete('Recording','deleteRecording',array('recordingId'=>'xxxxxxxxxx'));
+        # Print content of the recording object
 	 
-	 print_r($deleteRecording->getResponse());    
+        print_r($deleteRecording->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {

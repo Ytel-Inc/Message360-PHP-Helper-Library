@@ -8,25 +8,25 @@ $Message360 -> setOptions(array(
     'account_sid'       => "xxxxxxxxxx", 
     'auth_token'        => "xxxxxxxxxx",
     'response_to_array' =>true
-	));
+    ));
 try 
 {
     # Fetch listConference
-    $listConference = $Message360->listAll('Conferences','listConference',array(
+    $listConference = $Message360->listAll('Conferences', 'listConference', array(
     'Page'=>'1',
     'PageSize'=>'5',
     'FriendlyName'=>'',
     'Status'=>'',
     'DateCreated'=>'',
     'DateUpdated'=>'',
-	));
-   foreach($listConference->getResponse() as $ConferenceList) 
-  { 
-     print_r($ConferenceList);
-  }
+    ));
+    foreach($listConference->getResponse() as $ConferenceList) 
+    { 
+        print_r($ConferenceList);
+    }
 }
 catch (Message360_Exception $e) 
 {
-   echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

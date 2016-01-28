@@ -5,24 +5,24 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 # Message360 REST API credentials are required
 $Message360 -> setOptions(array(
-	'account_sid'       => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', 
+    'account_sid'       => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', 
     'auth_token'        => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-	'response_to_array' => true,
+    'response_to_array' => true,
 ));
 try
 {
-	#Play Audio
-	$playAudios = $Message360->create('Calls','playAudios', array(
-		'CallSid' => 1, //required
-		'AudioUrl' => 'XXXXXXXXXX',//required
-		'length' => 1, //optional
-		'Direction' => 'XXXXXXXXXX', //optional
-		'Loop' => 'XXXXXX', //optional
-		'Mix' => 'XXXXXX', //optional
-	));
-	print_r($playAudios->getResponse());
+    #Play Audio
+    $playAudios = $Message360->create('Calls','playAudios', array(
+        'CallSid' => 1, //required
+        'AudioUrl' => 'XXXXXXXXXX',//required
+        'length' => 1, //optional
+        'Direction' => 'XXXXXXXXXX', //optional
+        'Loop' => 'XXXXXX', //optional
+        'Mix' => 'XXXXXX', //optional
+    ));
+    print_r($playAudios->getResponse());
 }
 catch (Message360_Exception $e)
 {
-	echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }

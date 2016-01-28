@@ -13,18 +13,18 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   // Fetch Send SMS
-   $sendSMS = $Message360->create('sms','sendsms', array(
-          'FromCountryCode'   => 1, //required
-          'From' => 'XXXXXXXXXX', //required             
-          'ToCountryCode'  => 1, //required
-          'To' => 'XXXXXXXXXX', //required
-          'Body' => 'Sms Text', //required
-          'Method' => 'POST',//Ex.POST or GET  //optional 
-          'MessageStatusCallback' => 'Message Status callback URL' //optional
+    // Fetch Send SMS
+    $sendSMS = $Message360->create('sms','sendsms', array(
+            'FromCountryCode'   => 1, //required
+            'From' => 'XXXXXXXXXX', //required             
+            'ToCountryCode'  => 1, //required
+            'To' => 'XXXXXXXXXX', //required
+            'Body' => 'Sms Text', //required
+            'Method' => 'POST',//Ex.POST or GET  //optional 
+            'MessageStatusCallback' => 'Message Status callback URL' //optional
     ));
-   // Print content of the $sendSMS objects
-   print_r($sendSMS->getResponse());
+    // Print content of the $sendSMS objects
+    print_r($sendSMS->getResponse());
 }
 catch (Message360_Exception $e) 
 {

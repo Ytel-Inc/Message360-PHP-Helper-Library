@@ -9,12 +9,11 @@ $Message360 -> setOptions(array(
 'auth_token' => 'xxxxxxx',
 'response_to_array' => true,
 ));
-try
-{
+try {
 # Make Call
-$call = $Message360->create('Calls','makeCall', array(
+$call = $Message360->create('Calls', 'makeCall', array(
 'ToCountryCode' => 1, //required
-'To' => 'XXXXXXXXXX',//required
+'To' => 'XXXXXXXXXX', //required
 'FromCountryCode' => 1, //required
 'From' => 'XXXXXXXXXX', //required
 'Url' => 'XXXXXX', //required
@@ -31,12 +30,10 @@ $call = $Message360->create('Calls','makeCall', array(
 'Record' => 'XXXXXX', //optional
 'RecordCallback' => 'XXXXXX', //optional
 'RecordCallbackMethod' => 'XXXXXX', //optional
-'Transcribe' => 'XXXXXX',//optional
+'Transcribe' => 'XXXXXX', //optional
 'TranscribeCallback' => 'XXXXXX', //optional
 ));
 print_r($call->getResponse());
-}
-catch (Message360_Exception $e)
-{
+} catch (Message360_Exception $e) {
 echo "Error occured: " . $e->getMessage() . "\n";
 }
