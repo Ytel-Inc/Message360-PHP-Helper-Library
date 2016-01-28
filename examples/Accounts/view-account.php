@@ -13,12 +13,12 @@ $Message360 -> setOptions(array(
 try 
 {    
     // Fetch Account
-    $viewAccount = $Message360->get('accounts','viewaccount');
+    $viewAccount = $Message360->get('accounts', 'viewaccount');
     // Print content of the $viewAccount objects
     print_r($viewAccount->getResponse());
 } 
 catch (Message360_Exception $e) 
 {
-  echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

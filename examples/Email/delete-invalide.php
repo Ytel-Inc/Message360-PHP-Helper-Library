@@ -11,11 +11,11 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-  	 $deleteInvalid = $Message360->delete('Email','deleteInvalidEmail',
-  	 	array('email'=>'test@example.com'
-		));	 
-	 // Print content of the delete invalid email address object	
-	 print_r($deleteInvalid->getResponse());    
+        $deleteInvalid = $Message360->delete('Email','deleteInvalidEmail',
+            array('email'=>'test@example.com'
+        ));	 
+        // Print content of the delete invalid email address object	
+        print_r($deleteInvalid->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {

@@ -5,25 +5,25 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 # Message360 REST API credentials are required
 $Message360 -> setOptions(array( 
-   	'account_sid'       => 'xxxxxxxxxx', 
+        'account_sid'       => 'xxxxxxxxxx', 
     'auth_token'        => 'xxxxxxxxxx',
     'response_to_array' => true,        
 ));
 
 try 
 {
-   	# Fetch recordings   
+        # Fetch recordings   
     $recordings = $Message360->listAll('Recording','listRecording',array(
-    				'Page'=>'0',
-    				'PageSize'=>'10',
-    				'DateCreated'=>'2015-11-04',
-    				'CallSid'=>'xxxxxxxxxx',
-    				'RecordingId'=>'xxxxxxxxxx',
+                    'Page'=>'0',
+                    'PageSize'=>'10',
+                    'DateCreated'=>'2015-11-04',
+                    'CallSid'=>'xxxxxxxxxx',
+                    'RecordingId'=>'xxxxxxxxxx',
     				   				
-					));      
+                    ));      
     # Print content of the recording object
     foreach($recordings->getResponse() as $recording) 
- 	{ 
+        { 
         print_r($recording);
     }    
 } 

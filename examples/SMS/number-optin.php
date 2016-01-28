@@ -9,10 +9,9 @@ $Message360 -> setOptions(array(
 'auth_token' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 'response_to_array' =>true,
 ));
-try
-{
+try {
 //Opt-In a Number Parameters
-$optInNumber = $Message360->listAll('sms','numberoptin',array(
+$optInNumber = $Message360->listAll('sms', 'numberoptin', array(
 'From' => 'XXXXXXXXXX', //required
 'To' => 'XXXXXXXXXX', //required
 'Expires'=> 0, //required
@@ -22,9 +21,7 @@ $optInNumber = $Message360->listAll('sms','numberoptin',array(
 
 // Print content of the $getInboundSMS objects
 print_r($optInNumber->getResponse()); exit;
-}
-catch (Message360_Exception $e)
-{
+} catch (Message360_Exception $e) {
 echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

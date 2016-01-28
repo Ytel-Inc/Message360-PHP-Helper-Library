@@ -11,13 +11,13 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   	$invalidemails = $Message360->listAll('Email','listInvalidEmail',array(
-     'offset'=>0, 
-     'limit'=>10,
+        $invalidemails = $Message360->listAll('Email','listInvalidEmail',array(
+        'offset'=>0, 
+        'limit'=>10,
     )); 	      
     // Print content of the invalid emails  object
- 	foreach($invalidemails->getResponse() as $invalidemail) 
- 	{ 
+        foreach($invalidemails->getResponse() as $invalidemail) 
+        { 
         print_r($invalidemail);
     }    
 } 

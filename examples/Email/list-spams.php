@@ -11,13 +11,13 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   	$spams = $Message360->listAll('Email','listSpamEmail',array(
-     'offset'=>0, //'{Offset}',
-     'limit'=>10,//'{Limit}',
+        $spams = $Message360->listAll('Email','listSpamEmail',array(
+        'offset'=>0, //'{Offset}',
+        'limit'=>10,//'{Limit}',
     )); 	     
     // Print content of the spam emails address object
- 	foreach($spams->getResponse() as $spam) 
- 	{ 
+        foreach($spams->getResponse() as $spam) 
+        { 
         print_r($spam);
     }    
 } 

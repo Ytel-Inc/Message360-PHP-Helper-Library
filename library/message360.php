@@ -1,14 +1,14 @@
 <?php
 namespace Message360API\Lib;
 /**
- * @author Afzal Patel <afzal@ytel.co.in>
- * @version V1.1(v1b)
- */
+     * @author Afzal Patel <afzal@ytel.co.in>
+     * @version V1.1(v1b)
+     */
 
-if( floatval(phpversion()) < 5.2) {
+if (floatval(phpversion()) < 5.2) {
     trigger_error(sprintf(
         "Your PHP version %s is not valid. In order to run Message360 helper you will need to have at least PHP 5.2 or above.", 
-         phpversion() 
+            phpversion() 
     ));
 }
 
@@ -42,7 +42,7 @@ final class Message360 extends Message360_Related
     protected static $_instance = null;
     
     static function getInstance() {
-        if(is_null(self::$_instance)) self::$_instance = new self();
+        if (is_null(self::$_instance)) self::$_instance = new self();
         return self::$_instance;
     }
 }

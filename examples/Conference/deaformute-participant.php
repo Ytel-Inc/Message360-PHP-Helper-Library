@@ -8,24 +8,24 @@ $Message360 -> setOptions(array(
     'account_sid'       => "xxxxxxxxxx", 
     'auth_token'        => "xxxxxxxxxx",
     'response_to_array' =>true
-	));
+    ));
 try
 {
     # Fetch listParticipant    
-     $deafOrMuteParticipant = $Message360->post('Conferences','deafMuteParticipant',array(
-			'conferenceid'=>'xxxxxxxxxx',
-			'participantid'=>'xxxxxxxxxx',
-			'deaf'=>'','muted'=>''
-		));
-  # Print content of the listParticipant objects
-  foreach($deafOrMuteParticipant->getResponse() as $List) 
-  { 
-     print_r($List);
-  }
+        $deafOrMuteParticipant = $Message360->post('Conferences','deafMuteParticipant',array(
+            'conferenceid'=>'xxxxxxxxxx',
+            'participantid'=>'xxxxxxxxxx',
+            'deaf'=>'','muted'=>''
+        ));
+    # Print content of the listParticipant objects
+    foreach($deafOrMuteParticipant->getResponse() as $List) 
+    { 
+        print_r($List);
+    }
 } 
 catch (Message360_Exception $e) 
 {
-  echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 
 

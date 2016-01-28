@@ -11,13 +11,13 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   	$blocks = $Message360->listAll('Email','listBlockEmail',array(
-     'offset'=>0, 
-     'limit'=>10,
+        $blocks = $Message360->listAll('Email','listBlockEmail',array(
+        'offset'=>0, 
+        'limit'=>10,
     ));	
     // Print content of the block email address object
- 	foreach($blocks->getResponse() as $block) 
- 	{  
+        foreach($blocks->getResponse() as $block) 
+        {  
         print_r($block);
     }    
 } 

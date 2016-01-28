@@ -11,11 +11,11 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-  	 $deleteSpam = $Message360->delete('Email','deleteSpamEmail',
-  	 	array('email'=>'test@example.com'
-	 ));	 
-	 //Print content of the delete spam email address object	
-	 print_r($deleteSpam->getResponse());    
+        $deleteSpam = $Message360->delete('Email','deleteSpamEmail',
+            array('email'=>'test@example.com'
+        ));	 
+        //Print content of the delete spam email address object	
+        print_r($deleteSpam->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {

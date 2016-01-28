@@ -9,11 +9,11 @@ require_once 'Exception.php';
  * 
  * --------------------------------------------------------------------------------
  */
-class Message360_Schemas 
+class Message360_Schemas
 {
     
     /** Default location of the message360.json schema file  */
-    CONST MESSAGE360_SCHEMA_FILE = '/schemas/message360.json';
+    const MESSAGE360_SCHEMA_FILE = '/schemas/message360.json';
     
     /**
      * Storage of message360.json schema data 
@@ -27,7 +27,7 @@ class Message360_Schemas
      * 
      * @var self|null
      */
-    protected static $_instance   = null;
+    protected static $_instance = null;
     
 
     /**
@@ -36,7 +36,7 @@ class Message360_Schemas
      * @return self 
      */
     static function getInstance() {
-        if(is_null(self::$_instance)) {
+        if (is_null(self::$_instance)) {
             self::$_instance = new self();
             self::$_instance-> loadSchema();
         }
@@ -51,7 +51,7 @@ class Message360_Schemas
      * @return void
      */
     public function loadSchema() {
-        if(is_null(self::$_schemaData)) {
+        if (is_null(self::$_schemaData)) {
             $schema_file = realpath(dirname(dirname(dirname(__FILE__)))) . self::MESSAGE360_SCHEMA_FILE;
             $json_schema = file_get_contents($schema_file);
 
@@ -62,15 +62,15 @@ class Message360_Schemas
 
             if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
 
-                switch(json_last_error()) {
+                switch (json_last_error()) {
                     case JSON_ERROR_DEPTH:
-                        $error =  ' - Maximum stack depth exceeded';
+                        $error = ' - Maximum stack depth exceeded';
                         break;
                     case JSON_ERROR_CTRL_CHAR:
                         $error = ' - Unexpected control character found';
                         break;
                     case JSON_ERROR_STATE_MISMATCH:
-                        $error  = ' - Invalid or Malformed JSON';
+                        $error = ' - Invalid or Malformed JSON';
                         break;
                     case JSON_ERROR_SYNTAX:
                         $error = ' - Syntax error, malformed JSON';
@@ -82,7 +82,7 @@ class Message360_Schemas
 
             }
 
-            if (!empty($error)) throw new Message360_Exception('JSON SCHEMA Error: '.$error);
+            if (!empty($error)) throw new Message360_Exception('JSON SCHEMA Error: ' . $error);
             self::$_schemaData = $result;
         }
     }
@@ -95,7 +95,7 @@ class Message360_Schemas
      * @return bool
      */
     public function isRestComponent($component_name) {
-        if(!isset(self::$_schemaData->rest_api->components)) return false;
+        if (!isset(self::$_schemaData->rest_api->components)) return false;
         return array_key_exists($component_name, self::$_schemaData->rest_api->components) ? true : false;
     }
     
@@ -107,7 +107,7 @@ class Message360_Schemas
      * @return mixed
      */
     public function getRestComponentName($component_name) {
-        if(!isset(self::$_schemaData->rest_api->components)) return null;
+        if (!isset(self::$_schemaData->rest_api->components)) return null;
         return self::$_schemaData->rest_api->components->$component_name;
     }
     
@@ -118,7 +118,7 @@ class Message360_Schemas
      * @return stdClass|null
      */
     public function getAvailableRestComponents() {
-        if(!isset(self::$_schemaData->rest_api->components)) return null;
+        if (!isset(self::$_schemaData->rest_api->components)) return null;
         return self::$_schemaData->rest_api->components;
     }
     
@@ -130,7 +130,7 @@ class Message360_Schemas
      * @return bool|null 
      */
     public function isPagingProperty($paging_property) {
-        if(!isset(self::$_schemaData->rest_api->pagination)) return null;
+        if (!isset(self::$_schemaData->rest_api->pagination)) return null;
         return in_array($paging_property, self::$_schemaData->rest_api->pagination) ? true : false;
     }
     
@@ -141,8 +141,8 @@ class Message360_Schemas
      * @return array
      */
     public function getPagingProperties() {
-        if(!isset(self::$_schemaData->rest_api->pagination)) return array();
-        return (array) self::$_schemaData->rest_api->pagination;
+        if (!isset(self::$_schemaData->rest_api->pagination)) return array();
+        return (array)self::$_schemaData->rest_api->pagination;
     }
     
     
@@ -153,7 +153,7 @@ class Message360_Schemas
      * @return boolean 
      */
     public function isVerb($verb) {
-        if(!isset(self::$_schemaData->inboundxml->verbs)) return array();
+        if (!isset(self::$_schemaData->inboundxml->verbs)) return array();
         return array_key_exists(ucfirst($verb), self::$_schemaData->inboundxml->verbs) ? true : false;
     }
     
@@ -164,7 +164,7 @@ class Message360_Schemas
      * @return array
      */
     public function getAvailableVerbs() {
-        if(!isset(self::$_schemaData->inboundxml->verbs)) return array();
+        if (!isset(self::$_schemaData->inboundxml->verbs)) return array();
         return array_keys((array)self::$_schemaData->inboundxml->verbs);
     }
     
@@ -177,7 +177,7 @@ class Message360_Schemas
      * @return boolean 
      */
     public function isNestingAllowed($root_element, $next_element) {
-        if(!isset(self::$_schemaData->inboundxml->verbs->$root_element)) return false;
+        if (!isset(self::$_schemaData->inboundxml->verbs->$root_element)) return false;
         return in_array(ucfirst($next_element), self::$_schemaData->inboundxml->verbs->$root_element->nesting) ? true : false;
     }
     
@@ -189,7 +189,7 @@ class Message360_Schemas
      * @return array 
      */
     public function getNestableByVerbs($verb) {
-        if(!isset(self::$_schemaData->inboundxml->verbs->$verb)) return array();
+        if (!isset(self::$_schemaData->inboundxml->verbs->$verb)) return array();
         return self::$_schemaData->inboundxml->verbs->$verb->nesting;
     }
     
@@ -201,7 +201,7 @@ class Message360_Schemas
      * @return array 
      */
     public function getAvailableAttributes($verb) {
-        if(!isset(self::$_schemaData->inboundxml->verbs->$verb->attributes)) return array();
+        if (!isset(self::$_schemaData->inboundxml->verbs->$verb->attributes)) return array();
         return self::$_schemaData->inboundxml->verbs->$verb->attributes;
     }
     
@@ -214,7 +214,7 @@ class Message360_Schemas
      */
     public function isValidAttribute($attribute, $verb) {
         $verb = ucfirst($verb);
-        if(!isset(self::$_schemaData->inboundxml->verbs->$verb->attributes)) return false;
+        if (!isset(self::$_schemaData->inboundxml->verbs->$verb->attributes)) return false;
         return in_array($attribute, self::$_schemaData->inboundxml->verbs->$verb->attributes) ? true : false;
     }
 }

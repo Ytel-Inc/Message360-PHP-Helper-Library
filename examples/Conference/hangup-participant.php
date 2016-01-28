@@ -8,23 +8,23 @@ $Message360 -> setOptions(array(
     'account_sid'       => "xxxxxxxxxx", 
     'auth_token'        => "xxxxxxxxxx",
     'response_to_array' =>true
-	));
+    ));
 try 
 {    
     # Fetch hangupParticipant
     $hangupParticipant = $Message360->post('Conferences','hangupParticipant',array(
-			'conference_id'=>'xxxxxxxxxx',
-			'call_sid'=>'xxxxxxxxxx',
-		));
+            'conference_id'=>'xxxxxxxxxx',
+            'call_sid'=>'xxxxxxxxxx',
+        ));
 
-	# Print content of the hangupParticipant objects
-	foreach($hangupParticipant->getResponse() as $paricipantList) 
-	{ 
-	 print_r($paricipantList);
-	}
+    # Print content of the hangupParticipant objects
+    foreach($hangupParticipant->getResponse() as $paricipantList) 
+    { 
+        print_r($paricipantList);
+    }
 } 
 catch (Message360_Exception $e) 
 {
-  echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

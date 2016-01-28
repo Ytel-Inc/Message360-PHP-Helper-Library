@@ -13,12 +13,12 @@ $Message360 -> setOptions(array(
 try 
 {    
     // Fetch View SMS
-    $viewSMS = $Message360->get('sms','viewsms',array('SMXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'));
+    $viewSMS = $Message360->get('sms', 'viewsms', array('SMXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'));
     // Print content of the $viewSMS objects
     print_r($viewSMS->getResponse());
 } 
 catch (Message360_Exception $e) 
 {
-  echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

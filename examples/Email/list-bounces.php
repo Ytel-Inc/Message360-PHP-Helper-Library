@@ -11,13 +11,13 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   	$bounces = $Message360->listAll('Email','listBounceEmail',array(
-     'offset'=>1, 
-     'limit'=>10,
+        $bounces = $Message360->listAll('Email','listBounceEmail',array(
+        'offset'=>1, 
+        'limit'=>10,
     ));  	 
     // Print content of the bounce emails address object
- 	foreach($bounces->getResponse() as $bounce) 
- 	{  
+        foreach($bounces->getResponse() as $bounce) 
+        {  
         print_r($bounce);
     }    
 } 

@@ -11,18 +11,16 @@ $Message360 -> setOptions(array(
 ));
 try
 {
-	# Fetch calls
-	$calls = $Message360->post('Calls','listCalls',array(
-	'Page'=>'1',//optional
-	'PageSize'=>'10', //optional
-	'to'=>'XXXXXXXXXX',//optional
-	'from'=>'XXXXXXXXXX', //optional
-	'DateCreated'=>'XXXX-XX-XX' //optional
-	)); 
+    # Fetch calls
+    $calls = $Message360->post('Calls','listCalls',array(
+    'Page'=>'1',//optional
+    'PageSize'=>'10', //optional
+    'to'=>'XXXXXXXXXX',//optional
+    'from'=>'XXXXXXXXXX', //optional
+    'DateCreated'=>'XXXX-XX-XX' //optional
+    )); 
 # Print content of the calls objects
 print_r($calls->getResponse());
-}
-catch (Message360_Exception $e)
-{
+} catch (Message360_Exception $e) {
 echo "Error occured: " . $e->getMessage() . "\n";
 }

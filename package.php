@@ -20,7 +20,7 @@ $release_notes   = 'Adding PEAR package improvements';
 
 $description = <<<DESC
 Message360 PHP wrapper is an open source tool built for easy access to the api.message360.com API infrastructure. Message360 is a powerful cloud communications API built to enable your apps to send and receive SMS messages and phone calls — all while controlling the call flow. Some features are conferencing, phone calls, text-to-speech, recordings, transcriptions and much more.
-DESC;
+desc;
 
 $package = new PEAR_PackageFileManager2();
 
@@ -38,7 +38,7 @@ $package->setOptions(
         ),
         'ignore'                  => array(
             'examples/*',
-	        'logs/*',
+            'logs/*',
             'package.php',
             'package.xml~',
             'package.php~',

@@ -11,11 +11,11 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-  	 $deleteBounce = $Message360->delete('Email','deleteBouncesEmail',
-  	 	array('email'=>'test@example.com'
-		));		
-	 // Print content of the delete bounce email address object	
-	 print_r($deleteBounce->getResponse());    
+        $deleteBounce = $Message360->delete('Email','deleteBouncesEmail',
+            array('email'=>'test@example.com'
+        ));		
+        // Print content of the delete bounce email address object	
+        print_r($deleteBounce->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {

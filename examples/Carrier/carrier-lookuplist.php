@@ -10,13 +10,13 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-   //Send Request
-   $carrierLookupList = $Message360->listAll('carrier','lookuplist', array(
-   			'page'=> 1, //optional
-   			'page'=> 10, //optional  
+    //Send Request
+    $carrierLookupList = $Message360->listAll('carrier','lookuplist', array(
+                'page'=> 1, //optional
+                'page'=> 10, //optional  
     ));
-   // Print content of the $carrierLookupList objects
-   print_r($carrierLookupList->getResponse());
+    // Print content of the $carrierLookupList objects
+    print_r($carrierLookupList->getResponse());
 }
 catch (Message360_Exception $e) 
 {

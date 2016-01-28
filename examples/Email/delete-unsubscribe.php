@@ -11,11 +11,11 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-     $deleteUnsubscribe = $Message360->delete('Email','deleteUnsubscribedEmail',
-     array('email'=>'test@example.com'
-	 ));	 
-	 // Print content of the delete unsubscribe email address object	
-	 print_r($deleteUnsubscribe->getResponse());    
+        $deleteUnsubscribe = $Message360->delete('Email','deleteUnsubscribedEmail',
+        array('email'=>'test@example.com'
+        ));	 
+        // Print content of the delete unsubscribe email address object	
+        print_r($deleteUnsubscribe->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {

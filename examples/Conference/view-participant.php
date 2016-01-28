@@ -8,21 +8,21 @@ $Message360 -> setOptions(array(
     'account_sid'       => "xxxxxxxxxx", 
     'auth_token'        => "xxxxxxxxxx",
     'response_to_array' =>true
-	));
+    ));
 try 
 {    
     # Fetch viewParticipant
     $viewParticipant = $Message360->listAll('Conferences','viewParticipant',array(
-	'conferenceid'=>'xxxxxxxxxx',
-	'participantsid'=>'xxxxxxxxx'));
-	# Print content of the viewParticipant objects
-	foreach($viewParticipant->getResponse() as $paricipantList) 
-	{ 
-	 print_r($paricipantList);
-	}
+    'conferenceid'=>'xxxxxxxxxx',
+    'participantsid'=>'xxxxxxxxx'));
+    # Print content of the viewParticipant objects
+    foreach($viewParticipant->getResponse() as $paricipantList) 
+    { 
+        print_r($paricipantList);
+    }
 } 
 catch (Message360_Exception $e) 
 {
-  echo "Error occured: " . $e->getMessage() . "\n";
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

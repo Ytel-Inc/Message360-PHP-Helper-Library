@@ -11,11 +11,11 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-  	 $deleteBlock = $Message360->delete('Email','deleteBlocksEmail',
-  	 	array('email'=>'test@example.com'
-		));		
-	 // Print content of the block email address object	
-	 print_r($deleteBlock->getResponse());    
+        $deleteBlock = $Message360->delete('Email','deleteBlocksEmail',
+            array('email'=>'test@example.com'
+        ));		
+        // Print content of the block email address object	
+        print_r($deleteBlock->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {

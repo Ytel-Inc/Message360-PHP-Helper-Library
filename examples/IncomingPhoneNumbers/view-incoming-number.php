@@ -5,16 +5,16 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 // Message360 REST API credentials are required
 $Message360 -> setOptions(array( 
-   	    'account_sid'       => 'xxxxxxxxxxxxxxxxx', 
-	    'auth_token'        => 'xxxxxxxxxxxxxxxxx',
-	    'response_to_array' => true,      
+            'account_sid'       => 'xxxxxxxxxxxxxxxxx', 
+        'auth_token'        => 'xxxxxxxxxxxxxxxxx',
+        'response_to_array' => true,      
 ));
 try 
 {
-  	 // view incoming phone number details
-     $incomingNumber = $Message360->get('Incomingphone','viewNumber',array('xxxxxxxx'));
-	 // Print content of the incoming phone number object
-	 print_r($incomingNumber->getResponse());    
+        // view incoming phone number details
+        $incomingNumber = $Message360->get('Incomingphone','viewNumber',array('xxxxxxxx'));
+        // Print content of the incoming phone number object
+        print_r($incomingNumber->getResponse());    
 } 
 catch (Message360_Exception $e) 
 {
