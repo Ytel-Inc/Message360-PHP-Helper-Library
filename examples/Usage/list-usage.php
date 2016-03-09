@@ -11,18 +11,18 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-        $spams = $Message360->listAll('Email','listSpamEmail',array(
-        'offset'=>0, //'{Offset}',
-        'limit'=>10,//'{Limit}',
-    )); 	     
-    // Print content of the spam emails address object
-        foreach($spams->getResponse() as $spam) 
-        { 
-        print_r($spam);
-    }    
+    // Fetch listUsage
+    $listUsage = $Message360->listAll('usage','listusage',array(
+	    //'ProductCode'=> 0 , //optional
+	    //'StartDate'=>10, //optional
+	    //'EndDate'=>'XXXX-XX-XX', //optional
+	));
+   // Print content of the $listUsage objects
+   print_r($listUsage->getResponse());
+   
 } 
 catch (Message360_Exception $e) 
 {
-    echo "Error occured: " . $e->getMessage() . "\n";   
+  echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>

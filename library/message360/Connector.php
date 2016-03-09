@@ -1,10 +1,10 @@
 <?php
-
+namespace Message360API\Lib;
 /** @see Message360_Exception * */
 require_once 'Exception.php';
 
-class Message360_Connector {
-
+class Message360_Connector
+{
     protected $curl_data = array();
     protected $response_association = false;
     protected $_component = null;
@@ -12,7 +12,8 @@ class Message360_Connector {
     /**
      * @param string $component
      */
-    function __construct($curl_data, $response_association = false, $component = null) {
+    function __construct($curl_data, $response_association = false, $component = null)
+    {
         //echo "<pre>";print_r($curl_data);die;echo "</pre>";
         $this->curl_data = $curl_data;
         $this->response_association = $response_association;
@@ -28,8 +29,8 @@ class Message360_Connector {
                 $data = trim($this->curl_data['exec']);
                 if (substr($data, 0, 5) == '<?xml') {
                     $xml_data = simplexml_load_string($data);
-                    $error_code = isset($xml_data->RestException->Status) ? (string) $xml_data->RestException->Status : 500;
-                    $error_message = isset($xml_data->RestException->Message) ? (string) $xml_data->RestException->Message : 'Internal wrapper error';
+                    $error_code = isset($xml_data->RestException->Status) ? (string)$xml_data->RestException->Status : 500;
+                    $error_message = isset($xml_data->RestException->Message) ? (string)$xml_data->RestException->Message : 'Internal wrapper error';
                 } else {
                     $json_data = json_decode(trim($this->curl_data['exec']), false);
                     if (json_last_error() > 0) {
@@ -51,47 +52,56 @@ class Message360_Connector {
         $this->_decodeJSON();
     }
 
-    function __get($name) {
-        if ($this->response_association == false)
-            return isset($this->curl_data['response']->$name) ?
+    function __get($name)
+    {
+        if ($this->response_association == false) {
+                    return isset($this->curl_data['response']->$name) ?
                     $this->curl_data['response']->$name : null;
-        else
-            return isset($this->curl_data['response'][$name]) ?
+        } else {
+                    return isset($this->curl_data['response'][$name]) ?
                     $this->curl_data['response'][$name] : null;
+        }
     }
 
-    function __toString() {
+    function __toString()
+    {
         return print_r($this->curl_data['response'], true);
     }
 
-    function attr($key, $default_value = null) {
+    function attr($key, $default_value = null)
+    {
         $schemas = Message360_Schemas::getInstance();
 
-        if ($schemas->isPagingProperty($key)!==null) {
+        if ($schemas->isPagingProperty($key) !== null) {
             $available_attrs = implode(", ", $schemas->getPagingProperties());
             throw new Message360_Exception(
             "Attribute you've requested '{$key}' cannot be found. Available attributes are: '{$available_attrs}'"
             );
         }
-        if ($this->response_association == false)
-            return isset($this->curl_data['response']->$key) ? $this->curl_data['response']->$key : $default_value;
-        else
-            return isset($this->curl_data['response'][$key]) ? $this->curl_data['response'][$key] : $default_value;
+        if ($this->response_association == false) {
+                    return isset($this->curl_data['response']->$key) ? $this->curl_data['response']->$key : $default_value;
+        } else {
+                    return isset($this->curl_data['response'][$key]) ? $this->curl_data['response'][$key] : $default_value;
+        }
     }
 
-    function getResponse() {
+    function getResponse()
+    {
         return $this->curl_data['response'];
     }
 
-    function items($access_key = null) {
+    function items($access_key = null)
+    {
         $component = is_null($access_key) ? $this->_component : $access_key;
-        if ($this->response_association == false)
-            return isset($this->curl_data['response']->$component) ? $this->curl_data['response']->$component : array();
-        else
-            return isset($this->curl_data['response'][$component]) ? $this->curl_data['response'][$component] : array();
+        if ($this->response_association == false) {
+                    return isset($this->curl_data['response']->$component) ? $this->curl_data['response']->$component : array();
+        } else {
+                    return isset($this->curl_data['response'][$component]) ? $this->curl_data['response'][$component] : array();
+        }
     }
 
-    private function _decodeJSON() {
+    private function _decodeJSON()
+    {
         $result = json_decode(trim($this->curl_data['exec']), $this->response_association);
 
         $error = '';
@@ -111,7 +121,8 @@ class Message360_Connector {
         $this->curl_data['response'] = $result;
     }
 
-    private function _validateJSON() {
+    private function _validateJSON()
+    {
         switch (json_last_error()) {
             case JSON_ERROR_DEPTH:
                 $error = ' - Maximum stack depth exceeded';

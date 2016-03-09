@@ -9,20 +9,16 @@ $Message360 -> setOptions(array(
     'auth_token'        => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     'response_to_array' =>true,
 ));
+
 try 
-{
-        $spams = $Message360->listAll('Email','listSpamEmail',array(
-        'offset'=>0, //'{Offset}',
-        'limit'=>10,//'{Limit}',
-    )); 	     
-    // Print content of the spam emails address object
-        foreach($spams->getResponse() as $spam) 
-        { 
-        print_r($spam);
-    }    
+{    
+    // Fetch Account
+    $viewAccount = $Message360->get('accounts', 'viewaccount');
+    // Print content of the $viewAccount objects
+    print_r($viewAccount->getResponse());
 } 
 catch (Message360_Exception $e) 
 {
-    echo "Error occured: " . $e->getMessage() . "\n";   
+    echo "Error occured: " . $e->getMessage() . "\n";
 }
 ?>
