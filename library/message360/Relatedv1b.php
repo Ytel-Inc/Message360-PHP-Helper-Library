@@ -1,24 +1,26 @@
-    <?php
+<?php
+namespace Message360API\Lib;
 /**
  * @author Afzal Patel <afzal@ytel.co.in>
- * @version V2
+ * @version V1.1(v1b)
  */
-abstract class Message360_Related {
+abstract class Message360_Related
+{
 
     /** Wrapper to return Message360 response as JSON */
-    CONST WRAPPER_JSON = 'json';
+    const WRAPPER_JSON = 'json';
 
     /** Wrapper to return Message360 response as XML */
-    CONST WRAPPER_XML = 'xml';
+    const WRAPPER_XML = 'xml';
 
     /** BASE Message360 URI */
-    CONST API_URL = 'https://api.message360.com/api/v2/';
+    const API_URL = 'https://api.message360.com/api/v1b/';
 
     /** BASE Message360 API VERSION */
-    CONST API_VERSION = 'v2';
-    CONST API_START_COMPONENT = 'Accounts';
+    const API_VERSION = 'v1b';
+    const API_START_COMPONENT = 'Accounts';
 
-    protected $_availableVersions = array('2016-07-01', 'v2');
+    protected $_availableVersions = array('2015-11-01', 'v1b');
     protected static $_options = array(
         'account_sid' => null,
         'auth_token' => null,
@@ -37,7 +39,7 @@ abstract class Message360_Related {
         /*Account Module*/
         'viewaccount' => 'viewaccount',
         /*Usages Module*/
-        'listUsage' => 'listUsage',
+        'listusage' => 'listusage',
         /*Email v1b Module*/
         'sendEmails' => 'sendEmails',
         'listBlockEmail' => 'listBlockEmail',
@@ -51,45 +53,45 @@ abstract class Message360_Related {
         'deleteInvalidEmail' => 'deleteInvalidEmail',
         'deleteUnsubscribedEmail' => 'deleteUnsubscribedEmail',
         'addUnsubscribesEmail' => 'addUnsubscribesEmail',
-         /*SMS v1b Module*/
-          'sendsms' => 'sendsms',
-         'listsms' => 'listsms',
-         'viewsms' => 'viewsms',
-         'getinboundsms' => 'getinboundsms',
-         'numberoptin' => 'numberoptin', 
+            /*SMS v1b Module*/
+            'sendsms' => 'sendsms',
+            'listsms' => 'listsms',
+            'viewsms' => 'viewsms',
+            'getinboundsms' => 'getinboundsms',
+            'numberoptin' => 'numberoptin', 
          	
-    	/*Incoming Phone Number v1b Module*/
-    	'viewNumber'=>'viewNumber',
-    	'updateNumber'=>'updateNumber',
-    	'listNumber' => 'listNumber',
-    	'buyNumber' => 'buyNumber', 
-    	'releaseNumber' => 'releaseNumber',
-	/*Conference v1b Module*/
-       'viewConference'=>'viewConference',
-       'viewParticipant'=>'viewParticipant',
-       'addParticipant'=>'addParticipant',
-       'listParticipant'=>'listParticipant',
-       'listConference'=>'listConference',
-       'hangupParticipant'=>'hangupParticipant',
-       'deafMuteParticipant'=>'deafMuteParticipant',
-       'playAudio'=>'playAudio',
+        /*Incoming Phone Number v1b Module*/
+        'viewNumber'=>'viewNumber',
+        'updateNumber'=>'updateNumber',
+        'listNumber' => 'listNumber',
+        'buyNumber' => 'buyNumber', 
+        'releaseNumber' => 'releaseNumber',
+    /*Conference v1b Module*/
+        'viewConference'=>'viewConference',
+        'viewParticipant'=>'viewParticipant',
+        'addParticipant'=>'addParticipant',
+        'listParticipant'=>'listParticipant',
+        'listConference'=>'listConference',
+        'hangupParticipant'=>'hangupParticipant',
+        'deafMuteParticipant'=>'deafMuteParticipant',
+        'playAudio'=>'playAudio',
     	
-		/*Recording v1b Module*/
-		'viewRecording' => 'viewRecording',
-        'listRecording' => 'listRecording',
+        /*Recording v1b Module*/
+        'viewRecording' => 'viewRecording',
+        'listRecord' => 'listRecord',
         'deleteRecording' => 'deleteRecording',
 	
         'TranscribeAudioUrlAPI' => 'TranscribeAudioUrlAPI',
         'ListAvailableNumbersAPI' => 'ListAvailableNumbersAPI',
         'createIncomingPhoneNumberAPI' => 'createIncomingPhoneNumberAPI',
         'makeCall' => 'makeCall',
-        'listCalls' => 'listcalls',
-        'viewCalls' => 'viewcalls',
-        'interruptCalls' => 'interruptcalls',
+        'listcalls' => 'listcalls',
+        'viewcalls' => 'viewcalls',
+        'Interrupt' => 'Interrupt',
         'sendDigits' => 'sendDigits',
         'playAudios' => 'playAudios',
         'voiceEffect' => 'voiceEffect',
-        'recordCalls' => 'recordCalls',
+        'RecordCalls' => 'RecordCalls',
         'viewApplicationAPI' => 'viewApplicationAPI',
         'createApplicationAPI' => 'createApplicationAPI',
         'listApplicationAPI' => 'listApplicationAPI',
@@ -118,15 +120,15 @@ abstract class Message360_Related {
         'deleteunsubscribeemailapi' => 'deleteunsubscribeemailapi',
         'addunsubscribeapi' => 'addunsubscribeapi',
         
-		/*SMS v1 Module*/
+        /*SMS v1 Module*/
         'sendSMSMsg' => 'sendSMSMsg',
         'viewSMS' => 'viewSMS',
         'listSMS' => 'listSMS',
         'getInboundSMS' => 'getInboundSMS',
 		
 /*Incoming Phone Number*/
-	'viewNumber'=>'viewNumber',
-	'updateNumber'=>'updateNumber',
+    'viewNumber'=>'viewNumber',
+    'updateNumber'=>'updateNumber',
 
         'viewCampaign' => 'viewCampaign',
         'listCampaign' => 'listCampaign',
@@ -163,22 +165,15 @@ abstract class Message360_Related {
         'blockAPIS' => 'blockAPIS',
         'extentAuthorizeAPIS' => 'extentAuthorizeAPIS',
         
-		/*Carrier*/
-		'lookup'=>'lookup',
-		'lookuplist'=>'lookuplist',
-		 /*Transcription*/
+        /*Carrier*/
+        'lookup'=>'lookup',
+        'lookuplist'=>'lookuplist',
+		
+            /*Transcription*/
         'viewTranscription' => 'viewTranscription',
         'listTranscription' => 'listTranscription',
         'audioUrlTranscription' => 'audioUrlTranscription',
-        'recordingTranscription' => 'recordingTranscription',
-
-        /*numbers*/
-        'availableNumber' => 'availableNumber',
-        'viewNumber' => 'viewNumber',
-        'buyNumber' => 'buyNumber',
-        'updateNumber' => 'updateNumber',
-        'ajaxPurchaseNumber' => 'ajaxPurchaseNumber',
-        'checkSmsNumber' => 'checkSmsNumber'
+        'recordingTranscription' => 'recordingTranscription'
     );
 
     /**
@@ -211,9 +206,11 @@ abstract class Message360_Related {
      * @param  array $options 
      * @return void
      */
-    function setOptions(Array $options) {
-        foreach ($options as $key => $value)
-            $this->setOption($key, $value);
+    function setOptions(Array $options)
+    {
+        foreach ($options as $key => $value) {
+                    $this->setOption($key, $value);
+        }
     }
 
     /**
@@ -225,7 +222,8 @@ abstract class Message360_Related {
      * @throws Message360_Exception 
      * @return void
      */
-    function setOption($key, $value) {
+    function setOption($key, $value)
+    {
         if (!array_key_exists(strtolower($key), self::$_options)) {
             throw new Message360_Exception("Provided option '{$key}' cannot be found");
         }
@@ -238,7 +236,8 @@ abstract class Message360_Related {
      * @param  string $key
      * @return mixed
      */
-    function option($key) {
+    function option($key)
+    {
         return isset(self::$_options[strtolower($key)]) ? self::$_options[strtolower($key)] : null;
     }
 
@@ -251,7 +250,8 @@ abstract class Message360_Related {
      * @param  array        $parameters 
      * @return Message360_Connector
      */
-    function get($component, $action, Array $parameters = array()) {
+    function get($component, $action, Array $parameters = array())
+    {
         return new Message360_Connector($this->_execute(
                         rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $parameters), '/')
                         .
@@ -267,9 +267,10 @@ abstract class Message360_Related {
      * @param  array        $data
      * @return Message360_Connector 
      */
-    function create($component, $action, Array $data) {
+    function create($component, $action, Array $data)
+    {
         $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-        $post_params = $this->_buildPostParameters($action,$data);
+        $post_params = $this->_buildPostParameters($data);
         return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
     }
 
@@ -281,19 +282,22 @@ abstract class Message360_Related {
      * @param  array        $data
      * @return Message360_Connector 
      */
-    function listAll($component, $action, Array $data = array()) {
+    function listAll($component, $action, Array $data = array())
+    {
         $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-        $post_params = $this->_buildPostParameters($action,$data);
+        $post_params = $this->_buildPostParameters($data);
         return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
     }
 
-    function update($component, $action, Array $data) {
+    function update($component, $action, Array $data)
+    {
         $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-        $post_params = $this->_buildPostParameters($action,$data);
+        $post_params = $this->_buildPostParameters($data);
         return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
     }
 
-    function post($component, $action, Array $data = array()) {
+    function post($component, $action, Array $data = array())
+    {
         $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
         $post_params = $this->_buildPostParameters($data);
         return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
@@ -307,7 +311,8 @@ abstract class Message360_Related {
      * @param  string|array $component 
      * @return Message360_Connector 
      */
-    function delete($component, $action, Array $parameters = array()) {
+    function delete($component, $action, Array $parameters = array())
+    {
         return new Message360_Connector($this->_execute(
                         rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $parameters), '/')
                         .
@@ -322,7 +327,8 @@ abstract class Message360_Related {
      * 
      * @return Message360_Client <Message360_Client, self, NULL>
      */
-    function getClient() {
+    function getClient()
+    {
         return Message360_Client::getInstance();
     }
 
@@ -331,7 +337,8 @@ abstract class Message360_Related {
      *
      * @return Class <Message360_Connect, self, NULL>
      */
-    function getConnect() {
+    function getConnect()
+    {
         return Message360_Connect::getInstance();
     }
 
@@ -345,7 +352,8 @@ abstract class Message360_Related {
      * @return string
      * @throws Message360_Exception 
      */
-    private function _buildBaseUrl() {
+    private function _buildBaseUrl()
+    {
 
         //$return_url = self::API_URL . $this->_getBaseVersion() . '/';
 
@@ -367,7 +375,8 @@ abstract class Message360_Related {
      * @return string
      * @throws Message360_Exception  If invalid api_version applied
      */
-    private function _getBaseVersion() {
+    private function _getBaseVersion()
+    {
         $base_version = strtolower($this->option('api_version'));
 
         if (!in_array($base_version, $this->_availableVersions)) {
@@ -388,12 +397,14 @@ abstract class Message360_Related {
      * @return string
      * @throws Message360_Exception
      */
-    private function _buildUrl($component, Array $parameters = array()) {
+    private function _buildUrl($component, Array $parameters = array())
+    {
         $return_url = '';
 
         $this->_component = $component;
-        if (!is_null($this->_components[$component]))
-            $return_url .= $this->_components[$component] . '/';
+        if (!is_null($this->_components[$component])) {
+                    $return_url .= $this->_components[$component] . '/';
+        }
         return $return_url;
     }
 
@@ -403,7 +414,8 @@ abstract class Message360_Related {
      * @param  array  $parameters
      * @return string 
      */
-    private function _buildParameters(Array $parameters = array()) {
+    private function _buildParameters(Array $parameters = array())
+    {
         $return_params = '';
 
         if (count($parameters) > 0) {
@@ -415,7 +427,7 @@ abstract class Message360_Related {
                         $return_params .= $subvalue . '/';
                     }
                 } else {
-                    $return_params .=$value . '/';
+                    $return_params .= $value . '/';
                 }
             }
 
@@ -431,14 +443,10 @@ abstract class Message360_Related {
      * @param  array  $parameters
      * @return string 
      */
-    private function _buildPostParameters($action,Array $parameters = array()) {
+    private function _buildPostParameters(Array $parameters = array())
+    {
         $return_params = '';
-       if($action =='sendsms' or $action=='sendEmails')
-        {
-            return $parameters;
-        }
-       else 
-        {   
+
         if (count($parameters) > 0) {
 
             foreach ($parameters as $parameter => $value) {
@@ -463,23 +471,24 @@ abstract class Message360_Related {
         }
 
         return $return_params;
-       } 
     }
 
     /**
      * @param string $needle
      */
-    private function _startsWith($haystack, $needle) {
+    private function _startsWith($haystack, $needle)
+    {
         // search backwards starting from haystack length characters from the end
-        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== FALSE;
+        return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
     }
 
     /**
      * @param string $needle
      */
-    private function _findWith($haystack, $needle) {
+    private function _findWith($haystack, $needle)
+    {
         // search backwards starting from haystack length characters from the end
-        return $needle === "" || strrpos($haystack, $needle) !== FALSE;
+        return $needle === "" || strrpos($haystack, $needle) !== false;
     }
 
     /**
@@ -490,25 +499,28 @@ abstract class Message360_Related {
      * @param  string  $params
      * @return array 
      */
-    private function _execute($url, $type = 'GET', $params = null) {  
+    private function _execute($url, $type = 'GET', $params = null)
+    {
         $type = strtoupper($type);
         $account_sid = $this->option('account_sid');
         $auth_token = $this->option('auth_token');
         $response = array(); 
         $curl_port = 80;
-        if (substr($url, 0, 4) == 'http')
-            $curl_port = 80;
-        if (substr($url, 0, 5) == 'https')
-            $curl_port = 443;
+        if (substr($url, 0, 4) == 'http') {
+                    $curl_port = 80;
+        }
+        if (substr($url, 0, 5) == 'https') {
+                    $curl_port = 443;
+        }
 
         if ($resource = curl_init()) {
             $curl_opts = array(
                 CURLOPT_URL => $url,
                 CURLOPT_PORT => $curl_port,
-                CURLOPT_HEADER => FALSE,
-                CURLOPT_RETURNTRANSFER => TRUE,
+                CURLOPT_HEADER => false,
+                CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_TIMEOUT => 0,
-                CURLOPT_SSL_VERIFYPEER => FALSE,
+                CURLOPT_SSL_VERIFYPEER => false,
                 CURLOPT_USERPWD => "{$account_sid}:{$auth_token}",
             );
 
@@ -517,17 +529,9 @@ abstract class Message360_Related {
             }
 
             if ($type == 'POST') {
-              if(is_array($params))
-                {
-                 $curl_opts[CURLOPT_POST] = 1;
-                $curl_opts[CURLOPT_POSTFIELDS] = $params;
-                  
-                  }
-                else
-                { 
-              
+
                 $params = explode('&', $params);
-                $params12=array();
+                $params12 = array();
                 foreach ($params as $key => $value) {
                     $params = explode("=", $value);
                     $params1 = $params[0];
@@ -539,14 +543,13 @@ abstract class Message360_Related {
                 $curl_opts[CURLOPT_POST] = 1;
                 $curl_opts[CURLOPT_POSTFIELDS] = $params;
             }
-           } 
+
             if ($this->getConnect()->getStatus() === true) {
                 if (count(self::$_connectHeaders) > 0) {
                     $curl_opts[CURLOPT_HTTPHEADER] = self::$_connectHeaders;
                 }
             }
 
-            
             if (curl_setopt_array($resource, $curl_opts)) {
                 $response['exec'] = curl_exec($resource);
                 $response['error'] = curl_error($resource);
@@ -554,7 +557,6 @@ abstract class Message360_Related {
                 $response['info'] = curl_getinfo($resource);
             }
         }
-  
         return $response;
     }
 
