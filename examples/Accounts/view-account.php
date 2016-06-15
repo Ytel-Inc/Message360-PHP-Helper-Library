@@ -13,7 +13,10 @@ $Message360 -> setOptions(array(
 try 
 {    
     // Fetch Account
-    $viewAccount = $Message360->get('accounts', 'viewaccount');
+    $viewAccount = $Message360->listAll('accounts', 'viewaccount', array(
+                    'date' => 'YYYY-MM-DD'
+            ));
+            
     // Print content of the $viewAccount objects
     print_r($viewAccount->getResponse());
 } 
