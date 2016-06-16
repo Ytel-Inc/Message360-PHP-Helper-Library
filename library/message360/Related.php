@@ -1,4 +1,5 @@
-    <?php
+<?php
+ namespace Message360API\Lib;
 /**
  * @author Afzal Patel <afzal@ytel.co.in>
  * @version V2
@@ -222,12 +223,12 @@ abstract class Message360_Related {
      * 
      * @param  string $key
      * @param  mixed  $value
-     * @throws Message360_Exception 
+     * @throws \Message360_Exception 
      * @return void
      */
     function setOption($key, $value) {
         if (!array_key_exists(strtolower($key), self::$_options)) {
-            throw new Message360_Exception("Provided option '{$key}' cannot be found");
+            throw new \Message360_Exception("Provided option '{$key}' cannot be found");
         }
         self::$_options[strtolower($key)] = $value;
     }
@@ -322,7 +323,8 @@ abstract class Message360_Related {
      * 
      * @return Message360_Client <Message360_Client, self, NULL>
      */
-    function getClient() {
+    function getClient()
+    {
         return Message360_Client::getInstance();
     }
 
@@ -331,7 +333,8 @@ abstract class Message360_Related {
      *
      * @return Class <Message360_Connect, self, NULL>
      */
-    function getConnect() {
+    function getConnect()
+    {
         return Message360_Connect::getInstance();
     }
 
@@ -345,13 +348,14 @@ abstract class Message360_Related {
      * @return string
      * @throws Message360_Exception 
      */
-    private function _buildBaseUrl() {
+    private function _buildBaseUrl()
+    {
 
         //$return_url = self::API_URL . $this->_getBaseVersion() . '/';
 
         $return_url = self::API_URL;
         if (is_null($this->option('account_sid'))) {
-            throw new Message360_Exception(
+            throw new \Message360_Exception(
             "Please set account_sid option. You need to pass account_sid option as 
                 auth_token in order to authenticate and/or use Message360 wrapper"
             );
@@ -372,7 +376,7 @@ abstract class Message360_Related {
 
         if (!in_array($base_version, $this->_availableVersions)) {
             $base_versions = implode(', ', $this->_availableVersions);
-            throw new Message360_Exception("Defined version '{$base_version}' does not exist. Please use one of following versions: '{$base_versions}'");
+            throw new \Message360_Exception("Defined version '{$base_version}' does not exist. Please use one of following versions: '{$base_versions}'");
         }
 
         $this->setOption('api_version', $base_version);
@@ -554,7 +558,6 @@ abstract class Message360_Related {
                 $response['info'] = curl_getinfo($resource);
             }
         }
-  
         return $response;
     }
 
