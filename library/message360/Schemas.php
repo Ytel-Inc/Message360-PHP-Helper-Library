@@ -82,7 +82,7 @@ class Message360_Schemas
 
             }
 
-            if (!empty($error)) throw new Message360_Exception('JSON SCHEMA Error: ' . $error);
+            if (!empty($error)) throw new \Message360_Exception('JSON SCHEMA Error: ' . $error);
             self::$_schemaData = $result;
         }
     }

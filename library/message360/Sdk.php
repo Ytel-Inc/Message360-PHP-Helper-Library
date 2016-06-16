@@ -151,7 +151,7 @@ class Message360_Client extends Message360API\Lib\Message360_Related
     private function _isTokenValid($client_sid)
     {
         if (is_null($client_sid) || strlen($client_sid) < 20) {
-            throw new Message360_Exception("Specified Message360 Application client sid is not valid!");
+            throw new \Message360_Exception("Specified Message360 Application client sid is not valid!");
         }
 
         return true;

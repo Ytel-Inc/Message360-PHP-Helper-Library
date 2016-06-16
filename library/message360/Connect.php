@@ -13,7 +13,7 @@ class Message360_Connect extends Message360_Related
 	
     public function getConnectUrl($connect_sid) {
         if(strlen($connect_sid) != 34) {
-            new Message360_Exception("Please provide valid Connect SID in order to generate Connect URL");
+            new \Message360_Exception("Please provide valid Connect SID in order to generate Connect URL");
         }
 		
         return 'https://www.message360.com/connect/authorize/' . $connect_sid;
@@ -23,15 +23,15 @@ class Message360_Connect extends Message360_Related
     public function setCredentials($connect_sid, $access_key, $access_token) {
 		
         if(strlen($connect_sid) != 34) {
-            new Message360_Exception("Please provide valid Connect SID in order to set connect credentials!");
+            new \Message360_Exception("Please provide valid Connect SID in order to set connect credentials!");
         }
 		
         if(strlen($access_key) != 34) {
-            new Message360_Exception("Please provide valid AccessKey in order to set connect credentials!");
+            new \Message360_Exception("Please provide valid AccessKey in order to set connect credentials!");
         }
 		
         if(strlen($access_token) != 34) {
-            new Message360_Exception("Please provide valid AccessToken in order to set connect credentials!");
+            new \Message360_Exception("Please provide valid AccessToken in order to set connect credentials!");
         }
 		
         self::$_connectHeaders[] = "CONNECT-ACCESS-SID: {$connect_sid}";

@@ -22,7 +22,7 @@ class Message360_Connector
         if ($this->curl_data['errno'] > 0) {
             $errno = $this->curl_data['errno'];
             $error = $this->curl_data['error'];
-            throw new Message360_Exception("Curl returned error with code '{$errno}' and message '{$error}'");
+            throw new \Message360_Exception("Curl returned error with code '{$errno}' and message '{$error}'");
         } else {
             $http_code = $this->curl_data['info']['http_code'];
             if ($http_code != 200) {
@@ -43,7 +43,7 @@ class Message360_Connector
                 }
 
 
-                throw new Message360_Exception(
+                throw new \Message360_Exception(
                 "An error occured while querying message360 with the message '{$error_message}' and the error code '{$error_code}'"
                 );
             }
@@ -74,7 +74,7 @@ class Message360_Connector
 
         if ($schemas->isPagingProperty($key) !== null) {
             $available_attrs = implode(", ", $schemas->getPagingProperties());
-            throw new Message360_Exception(
+            throw new \Message360_Exception(
             "Attribute you've requested '{$key}' cannot be found. Available attributes are: '{$available_attrs}'"
             );
         }
