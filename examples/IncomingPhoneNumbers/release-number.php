@@ -10,13 +10,12 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-        // Fetch phone number details
-    $incomingNumbers = $Message360->delete('Incomingphone','releaseNumber',array('23233232323'));      
-        // Print content of the phone number  objects
-        foreach($incomingNumbers->getResponse() as $incomingNumber) 
-        { 
-        print_r($incomingNumber);
-    }
+    //Available phone numbers parameters
+    $releaseNumber = $Message360->listAll('incomingphone', 'releaseNumber', array(
+        'phonenumber' => 'xxxxxxxxxx'
+    ));
+
+    $response = $releaseNumber->getResponse();
 } 
 catch (Message360_Exception $e) 
 {
