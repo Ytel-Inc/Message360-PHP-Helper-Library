@@ -12,7 +12,7 @@ try
 {
         // Fetch phone number details
     $incomingNumbers = $Message360->create('Incomingphone','buyNumber',array(
-                    'phonenumber'=>'1',//optional
+                    'phonenumber'=>'xxxxxxxxxx',//requuired
                     ));      
         // Print content of the phone number  objects
         foreach($incomingNumbers->getResponse() as $incomingNumber) 
