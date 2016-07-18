@@ -11,10 +11,13 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-        // view incoming phone number details
-        $incomingNumber = $Message360->get('Incomingphone','viewNumber',array('xxxxxxxx'));
-        // Print content of the incoming phone number object
-        print_r($incomingNumber->getResponse());    
+    //View incoming phone number details
+    $listPhoneNumbers = $Message360->listAll('incomingphone', 'viewNumber', array(
+        'phonenumber' => "xxxxxxxxxx"
+    ));
+
+    // Print content of the phone number
+    $response = $listPhoneNumbers->getResponse();
 } 
 catch (Message360_Exception $e) 
 {
