@@ -11,26 +11,28 @@ $Message360 -> setOptions(array(
 ));
 try 
 {  
-        //For all Methods you can use GET or POST
-        $updateIncomingPhoneNumber = $Message360->update('Incomingphone','updateNumber', array(
-                    'FriendlyName' => 'Test',	   
-                    'PhoneNumber'  => 'XXXXXXXXXX',		    
-                    'VoiceUrl' => 'http://test.example.com/test.php',
-                    'VoiceMethod' => 'POST',
-                    'VoiceFallbackUrl' => 'http://test.example.com/test.php',
-                    'VoiceFallbackMethod' => 'POST',
-                    'HangupCallback' => 'HagupcallbackUs',
-                    'HangupCallbackMethod' => 'POST',
-                    'HeartbeatUrl' => 'http://test.example.com/test.php',
-                    'HeartbeatMethod' => 'POST',
-                    'SmsUrl' => 'http://test.example.com/test.php',
-                    'SmsMethod' => 'POST',
-                    'SmsFallbackUrl' => 'http://test.example.com/test.php',
-                    'SmsFallbackMethod' => 'POST',
-                    'VoiceCallerIdLookup' =>'true',
+    //Available phone numbers parameters
+    $updateNumber = $Message360->listAll('incomingphone', 'updateNumber', array(
+
+        'PhoneNumber'       => 'xxxxxxxxxx',
+        'FriendlyName'      => 'xxxxxxxxxx',
+        'VoiceMethod'       => 'POST',
+        'VoiceUrl'          => '',
+        'VoiceFallbackUrl'  => '',
+        'VoiceFallbackMethod' => 'POST',
+        'HangupCallback'    => '',
+        'HangupCallbackMethod' => 'POST',
+        'HeartbeatUrl'      => '',
+        'HeartbeatMethod'   => 'POST',
+        'SmsUrl'            => '',
+        'SmsMethod'         => '',
+        'SmsFallbackUrl'    => '',
+        'SmsFallbackMethod' => 'POST'
+
     ));
+    
     // Print content of the incoming phone number object
-    print_r($updateIncomingPhoneNumber->getResponse());
+    print_r($updateNumber->getResponse());
 } 
 catch (Message360_Exception $e) 
 {
