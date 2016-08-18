@@ -154,7 +154,12 @@
                     "forwardedFrom",
                     "ifMachine",
                     "ifMachineUrl",
-                    "ifMachineMethod"
+                    "ifMachineMethod",
+                     "GroupConfirmKey",
+                    "GroupConfirmFile",
+                    "ToCountryCode",
+                    "FromCountryCode",
+                    "callerId"
                 ],
                 "nesting": [
                     "Number",
