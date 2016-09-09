@@ -296,8 +296,8 @@ abstract class Message360_Related {
 
     function post($component, $action, Array $data = array()) {
         $creation_url = rtrim($this->_buildBaseUrl() . $component . '/' . $this->_buildUrl($action, $data), '/') . '.' . self::WRAPPER_JSON;
-        $post_params = $this->_buildPostParameters($data);
-        return new Message360_Connector($this->_execute($creation_url, 'POST', $post_params), $this->option('response_to_array'), $this->_component);
+        
+        return new Message360_Connector($this->_execute($creation_url, 'POST', $data), $this->option('response_to_array'), $this->_component);
     }
 
     /**
