@@ -13,7 +13,7 @@ try
     //Send Request
     $carrierLookupList = $Message360->listAll('carrier','lookuplist', array(
                 'page'=> 1, //optional
-                'page'=> 10, //optional  
+                'pagesize'=> 10, //optional  
     ));
     // Print content of the $carrierLookupList objects
     print_r($carrierLookupList->getResponse());
