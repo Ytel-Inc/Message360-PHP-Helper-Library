@@ -12,7 +12,7 @@ $Message360 -> setOptions(array(
 try 
 {
     // Fetch listUsage
-    $listUsage = $Message360->listAll('usage','listusage',array(
+    $listUsage = $Message360->listAll('usage','listUsage',array(
 	    //'ProductCode'=> 0 , //optional
 	    //'StartDate'=>10, //optional
 	    //'EndDate'=>'XXXX-XX-XX', //optional
