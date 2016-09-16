@@ -13,7 +13,9 @@ $Message360 -> setOptions(array(
 try 
 {    
     // Fetch View SMS
-    $viewSMS = $Message360->get('sms', 'viewsms', array('SMXXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'));
+   $viewSMS = $Message360->create('sms','viewsms', array(
+'messagesid' => 'xxxxxxxxxxxxxxx'
+));
     // Print content of the $viewSMS objects
     print_r($viewSMS->getResponse());
 } 
