@@ -1,4 +1,3 @@
-
 <?php
  namespace Message360API\Lib;
 /**

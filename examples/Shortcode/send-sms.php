@@ -18,7 +18,9 @@ try
             'Shortcode' => 'XXXXXX', //required             
             'ToCountryCode'  => 1, //required
             'To' => 'XXXXXXXXXX', //required
-            'Body' => 'Sms Text', //required
+            'TemplateId' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', //required
+            'data[parameter1]' => 'XXX' , //if parameter exist in template then required
+            'data[parameter2]' => 'XXX' , //if parameter exist in template then required
             'Method' => 'POST',//Ex.POST or GET  //optional 
             'MessageStatusCallback' => 'Message Status callback URL' //optional
         ));
