@@ -1,3 +1,4 @@
+
 <?php
  namespace Message360API\Lib;
 /**
@@ -52,8 +53,9 @@ abstract class Message360_Related {
         'deleteInvalidEmail' => 'deleteInvalidEmail',
         'deleteUnsubscribedEmail' => 'deleteUnsubscribedEmail',
         'addUnsubscribesEmail' => 'addUnsubscribesEmail',
-         /*SMS v1b Module*/
-          'sendsms' => 'sendsms',
+        
+         /*SMS v1b & Shortcode Module*/
+         'sendsms' => 'sendsms',
          'listsms' => 'listsms',
          'viewsms' => 'viewsms',
          'getinboundsms' => 'getinboundsms',
@@ -119,13 +121,13 @@ abstract class Message360_Related {
         'deleteunsubscribeemailapi' => 'deleteunsubscribeemailapi',
         'addunsubscribeapi' => 'addunsubscribeapi',
         
-		/*SMS v1 Module*/
+        /*SMS v1 Module*/
         'sendSMSMsg' => 'sendSMSMsg',
         'viewSMS' => 'viewSMS',
         'listSMS' => 'listSMS',
         'getInboundSMS' => 'getInboundSMS',
 		
-/*Incoming Phone Number*/
+        /*Incoming Phone Number*/
 	'viewNumber'=>'viewNumber',
 	'updateNumber'=>'updateNumber',
 
@@ -164,10 +166,11 @@ abstract class Message360_Related {
         'blockAPIS' => 'blockAPIS',
         'extentAuthorizeAPIS' => 'extentAuthorizeAPIS',
         
-		/*Carrier*/
-		'lookup'=>'lookup',
-		'lookuplist'=>'lookuplist',
-		 /*Transcription*/
+        /*Carrier*/
+        'lookup'=>'lookup',
+        'lookuplist'=>'lookuplist',
+        
+         /*Transcription*/
         'viewTranscription' => 'viewTranscription',
         'listTranscription' => 'listTranscription',
         'audioUrlTranscription' => 'audioUrlTranscription',
