@@ -22,7 +22,6 @@
             'to' => 'XXXXXXXXXXX',                   //required
             'from' => 'XXXXXXXXXXX',                 //required
             'file' => '@FULL_PATH_OF_FILE',          //required      
-           
             'Attachbyid' => 'Attachbyid',            //required either attachbyid or file
             'Color' => 'true',                       //required
             'Extraservices' => '',                   //optional
