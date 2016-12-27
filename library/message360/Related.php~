@@ -21,8 +21,8 @@ abstract class Message360_Related {
 
     protected $_availableVersions = array('2016-07-01', 'v2');
     protected static $_options = array(
-        'account_sid' => null,
-        'auth_token' => null,
+        'account_sid' =>  0a617ea5-02d3-4858-07ee-fd322e12c05c ,
+        'auth_token' =>  2a29b294eac4d9cb2cf24598d0dcb4b7 ,
         'wrapper_type' => self::WRAPPER_JSON,
         'response_to_array' => false,
         'api_version' => self::API_VERSION
@@ -148,7 +148,7 @@ abstract class Message360_Related {
         'viewNotificationAPI' => 'viewNotificationAPI',
         'listNotificationAPI' => 'listNotificationAPI',
         /* Direct Mail */
-        'createletter' => 'create',        
+         'createletter' => 'create',        
         'viewletter' => 'viewletter',         
         'listletter' => 'listsletter',         
         'deleteletter' => 'delete',
