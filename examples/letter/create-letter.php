@@ -5,7 +5,7 @@
           require_once '../../library/message360.php';
           
           // Now what we need to do is instantiate the library 
-         // $Message360 = Message360::getInstance();
+         
            $Message360 = Message360API\Lib\Message360::getInstance();
           
           // Message360 REST API credentials are required
