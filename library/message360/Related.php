@@ -179,7 +179,15 @@ abstract class Message360_Related {
         'buyNumber' => 'buyNumber',
         'updateNumber' => 'updateNumber',
         'ajaxPurchaseNumber' => 'ajaxPurchaseNumber',
-        'checkSmsNumber' => 'checkSmsNumber'
+        'checkSmsNumber' => 'checkSmsNumber',
+        
+        
+        /* Address */
+        'createAddress' => 'createAddress',
+        'viewAddress' => 'viewAddress',
+        'listAddress' => 'listAddress',
+        'deleteAddress' => 'deleteAddress',
+        'verifyAddress' => 'verifyAddress',
     );
 
     /**
