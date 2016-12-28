@@ -14,8 +14,8 @@ try
 {    
     // Fetch Verify Address
    $verifyAddress = $Message360->create('Address','verifyAddress', array(
-                                                                    'AddressId' => 'XXXXXXXXXXXXXXXXXXXXXXXX'
-                                                                    ));
+'AddressId' => 'xxxxxxxxxxxxxxx'
+));
     // Print content of the $verifyAddress objects
     print_r($verifyAddress->getResponse());
 } 
