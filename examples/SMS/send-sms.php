@@ -20,6 +20,7 @@ try
             'ToCountryCode'  => 1, //required
             'To' => 'XXXXXXXXXX', //required
             'Body' => 'Sms Text', //required
+            'SmartSms' => 'false',//Ex.true or false  //optional 
             'Method' => 'POST',//Ex.POST or GET  //optional 
             'MessageStatusCallback' => 'Message Status callback URL' //optional
     ));
