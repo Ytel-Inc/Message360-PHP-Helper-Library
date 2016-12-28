@@ -5,18 +5,18 @@ require_once '../../library/message360.php';
 $Message360 = Message360API\Lib\Message360::getInstance();
 // Message360 REST API credentials are required
 $Message360 -> setOptions(array( 
-     'account_sid'       => 'cbc6a0b5-c113-a6e4-4f96-53366a7c9966', 
-    'auth_token'        => '5964d5de074084894ff57f7771b296c3',
+    'account_sid'       => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX', 
+    'auth_token'        => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
     'response_to_array' =>true,
 ));
 
 try 
 {    
-    // Fetch View SMS
+    // Fetch View Address
    $viewAddress = $Message360->create('Address','viewAddress', array(
 'AddressId' => 'xxxxxxxxxxxxxxx'
 ));
-    // Print content of the $viewSMS objects
+    // Print content of the $viewAddress objects
     print_r($viewAddress->getResponse());
 } 
 catch (Message360_Exception $e) 
