@@ -13,8 +13,8 @@ $Message360 -> setOptions(array(
 ));
 try 
 {
-    // Fetch Send SMS
-    $sendSMS = $Message360->create('Address','createAddress', array(
+    // Fetch Create Address
+    $createAddress = $Message360->create('Address','createAddress', array(
             'name'   => 'XXXXXXXXXXXXXXXXXXXX', //required
             'address' => 'XXXXXXXXXXXXXXXXXXX', //required             
             'state'  => 'XX',                   //required
@@ -26,7 +26,7 @@ try
             'Description' => 'XXXXXXXXXXXXXXXX' //optional
     ));
     // Print content of the $sendSMS objects
-    print_r($sendSMS->getResponse());
+    print_r($createAddress->getResponse());
 }
 catch (Message360_Exception $e) 
 {
