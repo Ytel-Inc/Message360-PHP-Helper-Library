@@ -437,7 +437,7 @@ abstract class Message360_Related {
      */
     private function _buildPostParameters($action,Array $parameters = array()) {
         $return_params = '';
-       if($action =='sendsms' or $action=='sendEmails')
+       if($action =='sendsms' or $action=='sendEmails' or $action=='createletter')
         {
             return $parameters;
         }
