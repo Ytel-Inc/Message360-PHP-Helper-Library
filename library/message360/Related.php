@@ -159,11 +159,11 @@ abstract class Message360_Related {
         'listpostcard' => 'listpostcard',
         'deletepostcard' => 'deletepostcard',
         
-        'Verify' => 'Verify',
-        'create' => 'create',
-        'view' => 'view',
-        'lists' => 'lists',
-        'delete' => 'delete',
+        //areamail
+        'createareamail' => 'createareamail',
+        'viewareamail' => 'viewareamail',
+        'listareamail' => 'listareamail',
+        'deleteareamail' => 'deleteareamail',
         'verify' => 'verify',
         'listDestinationsAPIS' => 'listDestinationsAPIS',
         'authorizeDestinationAPIS' => 'authorizeDestinationAPIS',
@@ -444,7 +444,7 @@ abstract class Message360_Related {
      */
     private function _buildPostParameters($action,Array $parameters = array()) {
         $return_params = '';
-       if($action =='sendsms' or $action=='sendEmails' or $action=='createletter' or $action == 'createpostcard')
+       if($action =='sendsms' or $action=='sendEmails' or $action=='createletter' or $action == 'createpostcard' or $action == 'createareamail')
         {
             return $parameters;
         }
