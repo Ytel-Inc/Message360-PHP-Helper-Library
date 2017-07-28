@@ -148,10 +148,17 @@ abstract class Message360_Related {
         'viewNotificationAPI' => 'viewNotificationAPI',
         'listNotificationAPI' => 'listNotificationAPI',
         /* Direct Mail */
-        'Create' => 'Create',
-        'View' => 'View',
-        'Lists' => 'Lists',
-        'Delete' => 'Delete',
+        'createletter' => 'create',        
+        'viewletter' => 'viewletter',         
+        'listletter' => 'listsletter',         
+        'deleteletter' => 'delete',
+        
+        //postcard
+         'createpostcard' => 'createpostcard',
+        'viewpostcard' => 'viewpostcard',
+        'listpostcard' => 'listpostcard',
+        'deletepostcard' => 'deletepostcard',
+        
         'Verify' => 'Verify',
         'create' => 'create',
         'view' => 'view',
@@ -437,7 +444,7 @@ abstract class Message360_Related {
      */
     private function _buildPostParameters($action,Array $parameters = array()) {
         $return_params = '';
-       if($action =='sendsms' or $action=='sendEmails')
+       if($action =='sendsms' or $action=='sendEmails' or $action=='createletter' or $action == 'createpostcard')
         {
             return $parameters;
         }
